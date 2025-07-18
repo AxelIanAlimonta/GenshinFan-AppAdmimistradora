@@ -1,5 +1,5 @@
 export interface Elemento{
-    id:number;
+    id?:number;
     nombre:string;
     iconoURL:string;
 }

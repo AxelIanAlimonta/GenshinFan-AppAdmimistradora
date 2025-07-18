@@ -1,18 +1,32 @@
-.contenedorDeElementos{
+.contenedorDeElementos {
     display: flex;
+    max-width: fit-content;
+    justify-self: center;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.colNombre{
+.btnAgregarElemento {
+    align-self: start;
+}
+
+.colNombre {
     display: flex;
     align-items: center;
     width: 200px;
     overflow: hidden;
 }
 
-.colBtn{
+.colIcono {
+    padding: 10px;
+}
+
+.imgIco {
+    width: 60px;
+}
+
+.colBtn {
     display: flex;
     align-items: center;
     justify-content: center;

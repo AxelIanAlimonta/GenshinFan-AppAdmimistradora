@@ -43,7 +43,11 @@ export function useElementos() {
         }
     };
 
-    const eliminarElemento = async (id: number) => {
+    const eliminarElemento = async (id: number | undefined) => {
+        if (id === undefined) {
+            setError("ID del elemento no definido");
+            return;
+        }
         try {
             await deleteElemento(id);
             setElementos((prev) => prev.filter((el) => el.id !== id));
