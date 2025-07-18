@@ -10,6 +10,50 @@ async function getElementos(): Promise<Elemento[]> {
     return response.json();
 }
 
+async function getElementoById(id: number): Promise<Elemento> {
+    const response = await fetch(`${url}/${id}`);
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+}
+
+async function createElemento(elemento: Elemento): Promise<Elemento> {
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(elemento),
+    });
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+}
+
+async function updateElemento(id: number, elemento: Elemento): Promise<Elemento> {
+    const response = await fetch(`${url}/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(elemento),
+    });
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+}
+
+async function deleteElemento(id: number): Promise<void> {
+    const response = await fetch(`${url}/${id}`, {
+        method: 'DELETE',
+    });
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+}
 
 
-export { getElementos };
+export { getElementos, getElementoById, createElemento, updateElemento, deleteElemento };
