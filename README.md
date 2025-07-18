@@ -1,69 +1,74 @@
-# React + TypeScript + Vite
+# GenshinFan Admin
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web administradora del contenido para el sitio GenshinFan, desarrollada con React, Vite y TypeScript.
 
-Currently, two official plugins are available:
+Esta app permite gestionar información del juego Genshin Impact (personajes, regiones, elementos, imágenes, animaciones, etc.) a través de una API REST creada con ASP.NET + Entity Framework.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 💪 Tecnologías
 
-## Expanding the ESLint configuration
+- ⚛️ React
+- ⚡ Vite
+- 🧑‍💻 TypeScript
+- 🌐 React Router
+- 🧹 Estructura modular (components, pages, api, types)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📂 Estructura de carpetas
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── api/         # Llamadas a la API REST
+├── components/  # Componentes reutilizables
+├── pages/       # Vistas o pantallas
+├── types/       # Tipos TypeScript compartidos
+└── App.tsx      # Rutas principales
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Cómo iniciar el proyecto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/AxelIanAlimonta/genshinfan-admin.git
+   cd genshinfan-admin
+   ```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. Instalar dependencias:
+   ```bash
+   npm install
+   ```
+
+3. Iniciar servidor de desarrollo:
+   ```bash
+   npm run dev
+   ```
+
+## 🌐 API
+
+Este proyecto se conecta a una API REST hecha con ASP.NET y Entity Framework. Asegurate de tenerla corriendo localmente o configurar la URL base en los servicios dentro de `src/api`.
+
+## 🧾 Convención de commits
+
+Este proyecto sigue la convención de Conventional Commits. Algunos ejemplos:
+
+- `feat: agregar formulario de personaje`
+- `fix: corregir error al obtener regiones`
+- `chore: inicializar configuración de router`
+- `refactor: extraer lógica de fetch a un hook`
+- `docs: actualizar instrucciones de despliegue`
+- `style: aplicar estilos base a formularios`
+- `test: agregar tests para componente PersonajeForm`
+- `build: configurar Vite para producción`
+- `perf: optimizar renderizado de lista de personajes`
+
+## 📌 Próximos pasos
+
+- Implementar CRUD de personajes
+- Agregar formularios para entidades relacionadas (regiones, elementos, etc.)
+- Mejorar validaciones y manejo de errores
+- Agregar autenticación y permisos si es necesario
+
+---
+
+### 📄 Autor
+
+Actualmente en desarrollo por [Axel Ian Alimonta](https://github.com/axelianalimonta).  
+
