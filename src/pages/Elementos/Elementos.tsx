@@ -1,7 +1,7 @@
 import { Button, Col, Row, Spinner } from 'react-bootstrap';
 import { useElementos } from '../../hooks/useElementos';
 import './Elementos.css';
-import Loading from '../../components/Loadint';
+import Loading from '../../components/Loading';
 
 export default function Elementos() {
     const { elementos, eliminarElemento, loading, error } = useElementos();
