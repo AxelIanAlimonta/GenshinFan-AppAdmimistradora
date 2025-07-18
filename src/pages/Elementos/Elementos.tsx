@@ -3,6 +3,7 @@ import { useElementos } from '../../hooks/useElementos';
 import './Elementos.css';
 import Loading from '../../components/Loading';
 import { useNavigate } from 'react-router';
+import MostrarImagen from '../../components/MostrarImagen';
 
 export default function Elementos() {
     const { elementos, eliminarElemento, loading, error } = useElementos();
@@ -28,7 +29,7 @@ export default function Elementos() {
                         <p>{elemento.nombre}</p>
                     </Col>
                     <Col className='colIcono' sm="auto">
-                        <img src={elemento.iconoURL} alt={elemento.nombre} className='imgIco' />
+                        <MostrarImagen src={elemento.iconoURL} alt={elemento.nombre} />
                     </Col>
                     <Col className='colBtn'>
                         <Button variant="danger" onClick={() => eliminarElemento(elemento.id)}>
