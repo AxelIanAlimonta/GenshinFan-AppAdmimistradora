@@ -13,6 +13,10 @@ import Regiones from './pages/Regiones/Regiones.tsx';
 import RegionesLayout from './pages/Regiones/RegionesLayout.tsx';
 import CrearRegion from './pages/Regiones/CrearRegion/CrearRegion.tsx';
 import EditarRegion from './pages/Regiones/EditarRegion/EditarRegion.tsx';
+import Personajes from './pages/Personajes/Personajes.tsx';
+import PersonajesLayout from './pages/Personajes/PersonajesLayout.tsx';
+import CrearPersonaje from './pages/Personajes/CrearPersonaje/CrearPersonaje.tsx';
+import EditarPersonaje from './pages/Personajes/EditarPersonaje/EditarPersonaje.tsx';
 
 
 createRoot(document.getElementById('root')!).render(
@@ -35,6 +39,12 @@ createRoot(document.getElementById('root')!).render(
           <Route index element={<Regiones />} />
           <Route path="crear" element={<CrearRegion />} />
           <Route path=":id/editar" element={<EditarRegion />} />
+        </Route>
+
+        <Route path="personajes" element={<PersonajesLayout />} >
+          <Route index element={<Personajes />} />
+          <Route path="crear" element={<CrearPersonaje />} />
+          <Route path=":id/editar" element={<EditarPersonaje />} />
         </Route>
 
       </Route>
