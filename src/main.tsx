@@ -6,7 +6,7 @@ import 'bootswatch/dist/Minty/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Elementos from './pages/Elementos/Elementos.tsx'
 import CrearElemento from './pages/Elementos/CrearElemento/CrearElemento.tsx';
-import ElementosHome from './pages/Elementos/ElementosHome.tsx';
+import ElementosLayout from './pages/Elementos/ElementosLayout.tsx';
 import Home from './pages/Home/Home.tsx';
 
 
@@ -17,7 +17,7 @@ createRoot(document.getElementById('root')!).render(
     <Routes>
       <Route path="/" element={<App />} >
         <Route index element={<Home />} />
-        <Route path="elementos" element={<ElementosHome />} >
+        <Route path="elementos" element={<ElementosLayout />} >
           <Route index element={<Elementos />} />
           <Route path="crear" element={<CrearElemento />} />
         </Route>
