@@ -34,7 +34,7 @@ export default function CrearElemento() {
 
     return (
         <>
-            <h2>Crear Nuevo Elemento</h2>
+            <h3>Crear Nuevo Elemento</h3>
             <Form onSubmit={handleSubmit} className="formulario">
                 <Form.Group controlId="formNombre" className="grupoFormulario">
                     <Form.Label>Nombre</Form.Label>

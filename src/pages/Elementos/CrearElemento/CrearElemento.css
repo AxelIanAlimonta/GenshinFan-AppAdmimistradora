@@ -1,5 +1,4 @@
-.formulario{
-    max-width: 350px;
+.formulario {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,16 +6,19 @@
     gap: 10px;
     margin-left: auto;
     margin-right: auto;
+    width: 500px;
+    
+    
 }
 
-.grupoFormulario{
+.grupoFormulario {
     display: flex;
     margin-bottom: 10px;
     flex-direction: column;
     width: 100%;
 }
 
-.grupoFormularioBotones{
+.grupoFormularioBotones {
     display: flex;
     justify-content: center;
     align-items: center;
