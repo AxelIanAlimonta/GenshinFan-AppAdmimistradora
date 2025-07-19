@@ -1,0 +1,26 @@
+.formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    
+    
+}
+
+.grupoFormulario {
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+    width: 100%;
+}
+
+.grupoFormularioBotones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

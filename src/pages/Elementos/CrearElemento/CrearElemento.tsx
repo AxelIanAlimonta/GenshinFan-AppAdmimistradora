@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import { createElemento } from '../../../api/elementoService'
 import type { Elemento } from '../../../types/Elemento';
 import './CrearElemento.css';
+import MostrarImagen from "../../../components/MostrarImagen";
 
 export default function CrearElemento() {
 
@@ -44,10 +45,13 @@ export default function CrearElemento() {
                     <Form.Label>URL del Icono</Form.Label>
                     <Form.Control type="text" placeholder="Ingrese la URL del icono" value={iconoURL} onChange={(e) => setIconoURL(e.target.value)} />
                 </Form.Group>
+                <MostrarImagen src={iconoURL} alt={nombre} />
                 <FormGroup className="grupoFormularioBotones">
                     <Button type="submit" variant="success">Crear Elemento</Button>
                     <Button variant="danger" onClick={() => navigate('/elementos')}>Cancelar</Button>
                 </FormGroup>
+
+
 
             </Form>
         </>

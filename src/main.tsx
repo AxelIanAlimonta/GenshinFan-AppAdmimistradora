@@ -9,6 +9,10 @@ import Elementos from './pages/Elementos/Elementos.tsx'
 import CrearElemento from './pages/Elementos/CrearElemento/CrearElemento.tsx';
 import EditarElemento from './pages/Elementos/EditarElemento/EditarElemento.tsx';
 import Home from './pages/Home/Home.tsx';
+import Regiones from './pages/Regiones/Regiones.tsx';
+import RegionesLayout from './pages/Regiones/RegionesLayout.tsx';
+import CrearRegion from './pages/Regiones/CrearRegion/CrearRegion.tsx';
+import EditarRegion from './pages/Regiones/EditarRegion/EditarRegion.tsx';
 
 
 createRoot(document.getElementById('root')!).render(
@@ -16,16 +20,24 @@ createRoot(document.getElementById('root')!).render(
 
 
     <Routes>
+
       <Route path="/" element={<App />} >
+
         <Route index element={<Home />} />
+
         <Route path="elementos" element={<ElementosLayout />} >
           <Route index element={<Elementos />} />
           <Route path="crear" element={<CrearElemento />} />
           <Route path=":id/editar" element={<EditarElemento />} />
         </Route>
+
+        <Route path="regiones" element={<RegionesLayout />} >
+          <Route index element={<Regiones />} />
+          <Route path="crear" element={<CrearRegion />} />
+          <Route path=":id/editar" element={<EditarRegion />} />
+        </Route>
+
       </Route>
-
-
     </Routes>
   </BrowserRouter>,
 )

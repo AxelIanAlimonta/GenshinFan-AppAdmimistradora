@@ -1,0 +1,41 @@
+.contenedorDeRegiones {
+    display: flex;
+    max-width: fit-content;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btnAgregarRegion {
+    align-self: start;
+}
+
+.colNombre {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    overflow: hidden;
+}
+
+.nombreRegion {
+   margin-bottom: 0;
+   font-size: 1.2rem;
+}
+
+.colImagen {
+    padding: 10px;
+    background-color: rgb(80, 80, 80);
+    border-radius: 5px;
+}
+
+.imgIco {
+    width: 60px;
+}
+
+.colBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

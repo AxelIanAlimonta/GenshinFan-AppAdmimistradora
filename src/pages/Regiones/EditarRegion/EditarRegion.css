@@ -1,0 +1,26 @@
+.formEditarRegion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+}
+
+
+.grupoFormulario {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.contenedorImg {
+    background-color: rgb(83, 83, 83);
+    border-radius: 10px;
+}
+
+.contenedorBotones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 15px;
+}
