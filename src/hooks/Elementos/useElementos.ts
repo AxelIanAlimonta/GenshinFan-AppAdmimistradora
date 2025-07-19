@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getElementos, createElemento, deleteElemento, getElementoById, updateElemento } from "../api/elementoService";
-import type { Elemento } from "../types/Elemento";
+import { getElementos, createElemento, deleteElemento, getElementoById, updateElemento } from "../../api/elementoService";
+import type { Elemento } from "../../types/Elemento";
 
 export function useElementos() {
     const [elementos, setElementos] = useState<Elemento[]>([]);

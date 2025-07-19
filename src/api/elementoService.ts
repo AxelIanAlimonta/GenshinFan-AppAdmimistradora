@@ -11,6 +11,10 @@ async function getElementos(): Promise<Elemento[]> {
 }
 
 async function getElementoById(id: number): Promise<Elemento> {
+    if (id === undefined) {
+        throw new Error('ID del elemento no proporcionado');
+    }
+
     const response = await fetch(`${url}/${id}`);
     if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -33,6 +37,10 @@ async function createElemento(elemento: Elemento): Promise<Elemento> {
 }
 
 async function updateElemento(id: number, elemento: Elemento): Promise<Elemento> {
+    if (id === undefined) {
+        throw new Error('ID del elemento no proporcionado');
+    }
+
     const response = await fetch(`${url}/${id}`, {
         method: 'PUT',
         headers: {

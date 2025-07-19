@@ -1,12 +1,12 @@
 import { Button, Col, Row, } from 'react-bootstrap';
-import { useElementos } from '../../hooks/useElementos';
+import { useElementos } from '../../hooks/Elementos/useElementos';
 import './Elementos.css';
 import Loading from '../../components/Loading';
 import { useNavigate } from 'react-router';
 import MostrarImagen from '../../components/MostrarImagen';
 
 export default function Elementos() {
-    const { elementos, eliminarElemento, loading, error } = useElementos();
+    const { elementos, eliminarElemento,  loading, error } = useElementos();
     const navigate = useNavigate();
 
     if (loading) {
@@ -30,6 +30,11 @@ export default function Elementos() {
                     </Col>
                     <Col className='colIcono' sm="auto">
                         <MostrarImagen src={elemento.iconoURL} alt={elemento.nombre} />
+                    </Col>
+                    <Col className='colBtn'>
+                        <Button variant="primary" onClick={() => navigate(`/elementos/${elemento.id}/editar`)}>
+                            Editar
+                        </Button>
                     </Col>
                     <Col className='colBtn'>
                         <Button variant="danger" onClick={() => eliminarElemento(elemento.id)}>
