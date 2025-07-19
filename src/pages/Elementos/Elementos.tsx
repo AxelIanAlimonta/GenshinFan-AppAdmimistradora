@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router';
 import MostrarImagen from '../../components/MostrarImagen';
 
 export default function Elementos() {
-    const { elementos, eliminarElemento,  loading, error } = useElementos();
+    const { elementos, eliminarElemento, loading, error } = useElementos();
     const navigate = useNavigate();
 
     if (loading) {
@@ -26,7 +26,7 @@ export default function Elementos() {
             {elementos.map((elemento) => (
                 <Row key={elemento.id} className='rowElemento'>
                     <Col className="colNombre"  >
-                        <p>{elemento.nombre}</p>
+                        <p className="nombreElemento">{elemento.nombre}</p>
                     </Col>
                     <Col className='colIcono' sm="auto">
                         <MostrarImagen src={elemento.iconoURL} alt={elemento.nombre} />
