@@ -1,9 +1,9 @@
-export default function MostrarImagen({ src, alt }: { src: string, alt: string }) {
+export default function MostrarImagen({ src, alt }: { src: string | undefined, alt: string | undefined }) {
     const imagen = src && src.trim() !== '' ? src : '/images/no-encontrada.png';
     return (<>
         <img
             src={imagen}
-            alt={alt}
+            alt={alt || 'Imagen no disponible'}
             className="imgIco"
             onError={(e) => {
                 const target = e.currentTarget;
