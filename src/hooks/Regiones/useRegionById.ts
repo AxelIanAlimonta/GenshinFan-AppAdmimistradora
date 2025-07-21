@@ -2,7 +2,7 @@ import { getRegionById, updateRegion } from "../../api/regionService";
 import { useEffect, useState } from "react";
 import type { Region } from "../../types/Region";
 
-export default function useRegiones(id: number) {
+export default function useRegionById(id: number) {
 
     const [region, setRegion] = useState<Region | null>(null);
     const [loading, setLoading] = useState(true);

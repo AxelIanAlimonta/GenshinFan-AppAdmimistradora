@@ -1,0 +1,37 @@
+.contenedorRarezaElementoRegion {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.contenedorRarezaElementoRegion-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.labelSplashArt,
+.labelTarjeta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedorTarjeta,
+.contenedorSplashArt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.contenedorAvatar {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.contenedorAvatar-labelYcontrol {
+    flex-grow: 2;
+}

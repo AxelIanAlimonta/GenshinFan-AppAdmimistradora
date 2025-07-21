@@ -3,16 +3,16 @@ import type { Region } from './Region';
 
 
 export interface Personaje {
-  id: number;
+  id?: number;
   nombre?: string;
   descripcion?: string;
   rareza?: number;
   avatarURL?: string;
   splashArtURL?: string;
   tarjetaURL?: string;
-  fechaLanzamiento?: string;
-  elementoId?: string;
+  fechaLanzamiento?: string|null;
+  elementoId?: number;
   elemento?: Elemento;
-  regionId?: string;
+  regionId?: number;
   region?: Region;
 }

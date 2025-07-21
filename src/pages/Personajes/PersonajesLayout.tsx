@@ -3,8 +3,7 @@ import { Outlet } from "react-router";
 export default function PersonajesLayout() {
     return (
         <div className="personajes-layout">
-            <h1>Personajes</h1>
-            {/* Aquí irían los componentes o rutas anidadas para manejar los personajes */}
+            <h2>Personajes</h2>
             <Outlet />
         </div>
     );

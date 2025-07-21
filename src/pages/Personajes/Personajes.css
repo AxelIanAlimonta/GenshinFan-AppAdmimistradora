@@ -1,0 +1,25 @@
+.contenedorDePersonajes {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: baseline;
+    flex-wrap: nowrap;
+}
+
+.personaje-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.personaje-nombre {
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-grow: 2;
+}

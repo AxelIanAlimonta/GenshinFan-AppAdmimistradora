@@ -31,7 +31,11 @@ const usePersonajes = () => {
         }
     }
 
-    async function deletePersonaje(id: number) {
+    async function deletePersonaje(id: number | undefined) {
+        if (id === undefined) {
+            setError("ID del personaje no definido");
+            return;
+        }
         try {
             await del(id);
             setPersonajes((prev) => prev.filter((p) => p.id !== id));
