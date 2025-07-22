@@ -59,12 +59,6 @@ Este proyecto sigue la convención de Conventional Commits. Algunos ejemplos:
 - `build: configurar Vite para producción`
 - `perf: optimizar renderizado de lista de personajes`
 
-## 📌 Próximos pasos
-
-- Implementar CRUD de personajes
-- Agregar formularios para entidades relacionadas (regiones, elementos, etc.)
-- Mejorar validaciones y manejo de errores
-- Agregar autenticación y permisos si es necesario
 
 ---
 
