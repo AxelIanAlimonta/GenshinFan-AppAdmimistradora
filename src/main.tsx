@@ -19,6 +19,7 @@ import CrearPersonaje from './pages/Personajes/CrearPersonaje/CrearPersonaje.tsx
 import EditarPersonaje from './pages/Personajes/EditarPersonaje/EditarPersonaje.tsx';
 import Prueba from './pages/Pruebas/Prueba.tsx';
 import AgregarImagenPersonaje from './pages/Personajes/ImagenesPersonaje/AgregarImagenPersonaje/AgregarImagenPersonaje.tsx';
+import AgregarVideoPersonaje from './pages/Personajes/VideosPersonaje/AgregarVideoPersonaje/AgregarVideoPersonaje.tsx';
 
 
 createRoot(document.getElementById('root')!).render(
@@ -48,6 +49,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="crear" element={<CrearPersonaje />} />
           <Route path=":id/editar" element={<EditarPersonaje />} />
           <Route path="imagenes-personaje/:id/agregar" element={<AgregarImagenPersonaje />} />
+          <Route path="videos-personaje/:id/agregar" element={<AgregarVideoPersonaje />} />
         </Route>
 
         <Route path="pruebas" element={<Prueba />} />

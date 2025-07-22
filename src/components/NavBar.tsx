@@ -19,6 +19,7 @@ function NavBar() {
                         <Nav.Link onClick={() => navigate('/elementos')}>Elementos</Nav.Link>
                         <Nav.Link onClick={() => navigate('/regiones')}>Regiones</Nav.Link>
                         <Nav.Link onClick={() => navigate('/personajes')}>Personajes</Nav.Link>
+                        <Nav.Link onClick={() => navigate('/pruebas')}>Pruebas</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
