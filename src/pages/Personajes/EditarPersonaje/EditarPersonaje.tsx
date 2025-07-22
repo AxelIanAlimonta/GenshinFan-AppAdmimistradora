@@ -214,6 +214,8 @@ export default function EditarPersonaje() {
                 <Button type="submit" variant="success">Guardar Cambios</Button>
                 <Button variant="danger" onClick={() => navigate('/personajes')}>Cancelar</Button>
             </Form.Group>
+
+            <button className='btn-guardarFlotante' type='submit'><img src="/public/images/guardar.png" alt="Guardar" /></button>
         </Form>
     </>
     );

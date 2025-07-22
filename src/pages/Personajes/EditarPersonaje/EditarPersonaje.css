@@ -1,3 +1,7 @@
+.formulario {
+    position: relative;
+}
+
 .contenedorRarezaElementoRegion {
     display: flex;
     flex-direction: row;
@@ -36,7 +40,24 @@
     flex-grow: 2;
 }
 
-.imagenesPersonajeSection{
+.imagenesPersonajeSection {
     max-height: 750px;
     overflow-y: scroll;
+}
+
+.btn-guardarFlotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    background-color: transparent;
+
+}
+
+.btn-guardarFlotante img {
+    width: 70px;
+    height: 70px;
 }
