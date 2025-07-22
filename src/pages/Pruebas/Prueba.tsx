@@ -1,10 +1,13 @@
+import ImagenesPersonaje from '../Personajes/ImagenesPersonaje/ImagenesPersonaje';
 import './Prueba.css';
 
 export default function Prueba() {
+
     return (
         <div>
-            <h1>Prueba de Componente</h1>
-            <p>Este es un componente de prueba para verificar la estructura y el funcionamiento básico.</p>
+            <h1>Prueba de Imágenes de Personaje</h1>
+            <ImagenesPersonaje id={10}/>
         </div>
     );
 }
+

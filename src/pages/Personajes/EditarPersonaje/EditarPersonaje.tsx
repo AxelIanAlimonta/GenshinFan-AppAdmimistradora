@@ -8,6 +8,7 @@ import { useRegiones } from '../../../hooks/Regiones/useRegiones';
 import { useNavigate, useParams } from 'react-router';
 import usePersonajeById from '../../../hooks/Personajes/usePersonajeById';
 import Loading from '../../../components/Loading';
+import ImagenesPersonaje from '../ImagenesPersonaje/ImagenesPersonaje';
 
 export default function EditarPersonaje() {
 
@@ -57,7 +58,7 @@ export default function EditarPersonaje() {
         e.preventDefault();
 
         const nuevoPersonaje: Personaje = {
-            id, 
+            id,
             nombre,
             descripcion,
             rareza,
@@ -200,7 +201,14 @@ export default function EditarPersonaje() {
                 )}
             </Form.Group>
 
+            <h3>Imagenes del personaje</h3>
+            <Button variant="primary" onClick={() => navigate(`/personajes/imagenes-personaje/${id}/agregar`)}>
+                Agregar Imagen
+            </Button>
 
+            <section className="imagenesPersonajeSection">
+                <ImagenesPersonaje id={id} />
+            </section>
 
             <Form.Group className="grupoFormularioBotones">
                 <Button type="submit" variant="success">Guardar Cambios</Button>

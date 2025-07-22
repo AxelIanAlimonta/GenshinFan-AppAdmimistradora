@@ -1,0 +1,16 @@
+.formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 350px;
+    margin-bottom: 20px;
+}
+
+.formulario-group {
+    width: 100%;
+}
+
+.formulario-botones{
+    display: flex;
+    gap: 10px;
+}

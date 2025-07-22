@@ -35,3 +35,8 @@
 .contenedorAvatar-labelYcontrol {
     flex-grow: 2;
 }
+
+.imagenesPersonajeSection{
+    max-height: 750px;
+    overflow-y: scroll;
+}
