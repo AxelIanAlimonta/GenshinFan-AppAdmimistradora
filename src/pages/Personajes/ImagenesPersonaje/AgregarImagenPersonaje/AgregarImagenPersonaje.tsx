@@ -47,11 +47,7 @@ export default function AgregarImagenPersonaje() {
         });
     }
 
-    imagenesPersonaje.sort((a, b) => {
-        if (a.calificacion === undefined) return 1;
-        if (b.calificacion === undefined) return -1;
-        return b.calificacion - a.calificacion;
-    });
+    
 
     return (
         <div>
