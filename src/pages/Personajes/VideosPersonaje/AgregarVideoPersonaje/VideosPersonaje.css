@@ -1,0 +1,50 @@
+.contenedorAgregarVideo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-basis: 350px;
+}
+
+.formulario-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+
+.contenedorVideos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.contenedorVideo {
+    flex-basis: 400px;
+    height: 200px;
+}
+
+
+.contenedorVideo-iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.formulario-botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

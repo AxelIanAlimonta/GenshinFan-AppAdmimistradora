@@ -8,8 +8,16 @@ export function useVideosPersonajePorIdPersonaje(idPersonaje: number) {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
+    // No lanzar excepción, manejar el caso gracefully
     if (!idPersonaje) {
-        throw new Error("idPersonaje is required");
+        return {
+            videos: [],
+            loading: false,
+            error: "ID de personaje no válido",
+            createVideo: async () => { console.error("ID de personaje no válido"); return null; },
+            updateVideo: async () => { console.error("ID de personaje no válido"); return null; },
+            deleteVideo: async () => { console.error("ID de personaje no válido"); }
+        };
     }
 
     useEffect(() => {
@@ -21,7 +29,7 @@ export function useVideosPersonajePorIdPersonaje(idPersonaje: number) {
             } catch (error) {
                 console.error("Error fetching videos:", error);
                 setError("Error fetching videos");
-                throw error;
+                return [];
             } finally {
                 setLoading(false);
             }
@@ -39,7 +47,7 @@ export function useVideosPersonajePorIdPersonaje(idPersonaje: number) {
         } catch (error) {
             console.error("Error creating video:", error);
             setError("Error creating video");
-            throw error;
+            return null;
         }
     };
 
@@ -54,7 +62,7 @@ export function useVideosPersonajePorIdPersonaje(idPersonaje: number) {
         } catch (error) {
             console.error("Error updating video:", error);
             setError("Error updating video");
-            throw error;
+            return null;
         }
     };
 
@@ -65,7 +73,6 @@ export function useVideosPersonajePorIdPersonaje(idPersonaje: number) {
         } catch (error) {
             console.error("Error deleting video:", error);
             setError("Error deleting video");
-            throw error;
         }
     };
 

@@ -9,15 +9,21 @@ import { useNavigate, useParams } from 'react-router';
 import usePersonajeById from '../../../hooks/Personajes/usePersonajeById';
 import Loading from '../../../components/Loading';
 import ImagenesPersonaje from '../ImagenesPersonaje/ImagenesPersonaje';
+import VideosPersonaje from '../VideosPersonaje/VideosPersonaje';
+import useImagenesPersonajePorIdPersonaje from '../../../hooks/Personajes/useImagenesPersonajePorIdPersonaje';
+import { useVideosPersonajePorIdPersonaje } from '../../../hooks/Personajes/useVideosPersonajePorIdPersonaje';
 
 export default function EditarPersonaje() {
 
     const { id: idParam } = useParams();
     if (!idParam) {
-        throw new Error("ID del personaje no proporcionado");
+        return <div>Error: ID del personaje no proporcionado</div>;
     }
 
     const id: number = parseInt(idParam, 10);
+    if (isNaN(id)) {
+        return <div>Error: ID del personaje no válido</div>;
+    }
 
 
 
@@ -36,6 +42,8 @@ export default function EditarPersonaje() {
     const { editarPersonaje, personaje, loading } = usePersonajeById(id);
     const { elementos } = useElementos();
     const { regiones } = useRegiones();
+    const { imagenesPersonaje, eliminarImagen, loading: loadingImagenes, error: errorImagenes } = useImagenesPersonajePorIdPersonaje(id);
+    const { videos, deleteVideo, loading: loadingVideos, error: errorVideos } = useVideosPersonajePorIdPersonaje(id);
 
     const navigate = useNavigate();
 
@@ -74,7 +82,6 @@ export default function EditarPersonaje() {
             navigate('/personajes');
         }).catch((error) => {
             console.error("Error al Guardar el personaje:", error);
-            alert("Hubo un error al Guardar el personaje. Por favor, inténtelo de nuevo.");
         });
     }
 
@@ -205,10 +212,19 @@ export default function EditarPersonaje() {
             <Button variant="primary" onClick={() => navigate(`/personajes/imagenes-personaje/${id}/agregar`)}>
                 Agregar Imagen
             </Button>
-
             <section className="imagenesPersonajeSection">
-                <ImagenesPersonaje id={id} />
+                <ImagenesPersonaje imagenesPersonaje={imagenesPersonaje} loading={loadingImagenes} error={errorImagenes} eliminarImagen={eliminarImagen} />
             </section>
+
+            <h3>Videos del personaje</h3>
+            <Button variant="primary" onClick={() => navigate(`/personajes/videos-personaje/${id}/agregar`)}>
+                Agregar Video
+            </Button>
+            <section className="videosPersonajeSection">
+                <VideosPersonaje videos={videos} loading={loadingVideos} error={errorVideos} deleteVideo={deleteVideo} />
+            </section>
+
+
 
             <Form.Group className="grupoFormularioBotones">
                 <Button type="submit" variant="success">Guardar Cambios</Button>

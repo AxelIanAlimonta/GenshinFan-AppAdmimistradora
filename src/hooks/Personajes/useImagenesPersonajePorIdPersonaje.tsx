@@ -8,6 +8,8 @@ export default function useImagenesPersonajePorIdPersonaje(idPersonaje: number) 
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
+        setLoading(true);
+        setError(null);
         async function fetchImagenes() {
             try {
                 const imagenes = await getImagenesPersonajeByPersonajeId(idPersonaje);
@@ -18,7 +20,6 @@ export default function useImagenesPersonajePorIdPersonaje(idPersonaje: number) 
                 setLoading(false);
             }
         }
-
         fetchImagenes();
     }, [idPersonaje]);
 
@@ -35,8 +36,14 @@ export default function useImagenesPersonajePorIdPersonaje(idPersonaje: number) 
         try {
             await deleteImagenPersonaje(id);
             setImagenesPersonaje((prev) => prev.filter((img) => img.id !== id));
+            setError(null); // Resetear error si la eliminación fue exitosa
         } catch (error) {
-            console.error("Error deleting image:", error);
+            let mensaje = "Error deleting image";
+            if (error instanceof Error && error.message) {
+                mensaje += ": " + error.message;
+            }
+            setError(mensaje);
+            console.error(mensaje, error);
         }
     };
 

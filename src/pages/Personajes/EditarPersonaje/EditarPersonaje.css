@@ -43,6 +43,16 @@
 .imagenesPersonajeSection {
     max-height: 750px;
     overflow-y: scroll;
+    width: 80vw;
+    margin-bottom: 40px;
+}
+
+.videosPersonajeSection {
+    max-height: 750px;
+    overflow-y: scroll;
+    width: 80vw;
+    margin-bottom: 40px;
+
 }
 
 .btn-guardarFlotante {

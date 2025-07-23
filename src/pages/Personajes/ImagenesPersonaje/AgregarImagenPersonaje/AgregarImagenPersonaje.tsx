@@ -9,10 +9,11 @@ import './AgregarImagenPersonaje.css';
 
 export default function AgregarImagenPersonaje() {
     const id = Number(useParams().id);
-    const { agregarImagen } = useImagenesPersonajePorIdPersonaje(id);
     const [nombre, setNombre] = useState<string>('');
     const [url, setUrl] = useState<string>('');
+    const [calificacion, setCalificacion] = useState<ImagenPersonaje['calificacion']>(undefined);
 
+    const { imagenesPersonaje, loading: loadingImagenes, error: errorImagenes, agregarImagen, eliminarImagen } = useImagenesPersonajePorIdPersonaje(id);
     const navigate = useNavigate();
 
 
@@ -27,19 +28,30 @@ export default function AgregarImagenPersonaje() {
             alert("Por favor, complete todos los campos.");
             return;
         }
-
+        if (calificacion === undefined || calificacion < 1 || calificacion > 10) {
+            alert("La calificación debe estar entre 1 y 10.");
+            return;
+        }
 
         const nuevaImagen: ImagenPersonaje = {
             nombre,
             url,
             personajeId: id,
+            calificacion,
         };
 
         agregarImagen(nuevaImagen).then(() => {
-            navigate(0);
+            setNombre('');
+            setUrl('');
+            setCalificacion(undefined);
         });
-
     }
+
+    imagenesPersonaje.sort((a, b) => {
+        if (a.calificacion === undefined) return 1;
+        if (b.calificacion === undefined) return -1;
+        return b.calificacion - a.calificacion;
+    });
 
     return (
         <div>
@@ -51,10 +63,32 @@ export default function AgregarImagenPersonaje() {
                     <Form.Control type="text" placeholder="Ingrese el nombre de la imagen" value={nombre} onChange={(e) => setNombre(e.target.value)} />
                 </Form.Group>
 
+                <Form.Group className="formulario-group">
+                    <Form.Label>Calificación de la Imagen</Form.Label>
+                    <Form.Select
+                        value={calificacion ?? ''}
+                        onChange={(e) => {
+                            const value = Number(e.target.value);
+                            if (value >= 1 && value <= 10) {
+                                setCalificacion(value as ImagenPersonaje['calificacion']);
+                            } else {
+                                setCalificacion(undefined);
+                            }
+                        }}
+                    >
+                        <option value="">Seleccione una calificación</option>
+                        {[...Array(10)].map((_, i) => (
+                            <option key={i + 1} value={i + 1}>{i + 1}</option>
+                        ))}
+                    </Form.Select>
+                </Form.Group>
+
                 <Form.Group controlId="formImagenURL" className="formulario-group">
                     <Form.Label>URL de la Imagen</Form.Label>
                     <Form.Control type="text" placeholder="Ingrese la URL de la imagen" value={url} onChange={(e) => setUrl(e.target.value)} />
                 </Form.Group>
+
+
 
                 {url !== '' && <MostrarImagen src={url} alt={nombre} width={350} />}
 
@@ -65,7 +99,7 @@ export default function AgregarImagenPersonaje() {
 
             </Form>
             <h2>Imagenes agregadas</h2>
-            <ImagenesPersonaje id={id} />
+            <ImagenesPersonaje imagenesPersonaje={imagenesPersonaje} loading={loadingImagenes} error={errorImagenes} eliminarImagen={eliminarImagen} />
         </div>
     );
 }  

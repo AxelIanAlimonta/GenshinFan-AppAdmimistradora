@@ -1,0 +1,28 @@
+.contenedorVideos{
+    width: 100%;
+}
+
+.contenedorVideo {
+    position: relative;
+}
+
+.btn-borrar-video {
+    position: absolute;
+    top: 85px;
+    right: 10px;
+    width: fit-content;
+    height: fit-content;
+    padding: 0;
+    border: none;
+    border-radius: 0 !important;
+    background-color: transparent;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+.btn-borrar-video img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

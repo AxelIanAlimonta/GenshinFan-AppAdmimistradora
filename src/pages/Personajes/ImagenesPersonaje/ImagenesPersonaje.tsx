@@ -1,13 +1,15 @@
-import useImagenesPersonajePorIdPersonaje from '../../../hooks/Personajes/useImagenesPersonajePorIdPersonaje';
 import './ImagenesPersonaje.css';
 import Loading from '../../../components/Loading';
+import type { ImagenPersonaje } from '../../../types/ImagenPersonaje';
 
 
-export default function ImagenesPersonaje({ id }: { id: number }) {
 
-    const { imagenesPersonaje, loading, error, eliminarImagen } = useImagenesPersonajePorIdPersonaje(id);
-
-
+export default function ImagenesPersonaje({ imagenesPersonaje, loading, error, eliminarImagen }: {
+    imagenesPersonaje: Array<ImagenPersonaje>;
+    loading: boolean;
+    error: string | null;
+    eliminarImagen: (id: number) => void;
+}) {
 
     if (loading) {
         return <Loading />;
@@ -21,29 +23,26 @@ export default function ImagenesPersonaje({ id }: { id: number }) {
         return <p>No hay imágenes disponibles para este personaje.</p>;
     }
 
-    function handleDelete(imagenId: number) {
-        eliminarImagen(imagenId)
-    }
-
-
+    imagenesPersonaje.sort((a, b) => {
+        if (a.calificacion === undefined) return 1;
+        if (b.calificacion === undefined) return -1;
+        return b.calificacion - a.calificacion;
+    });
 
     return (
-        <div>
-            {error && <p className='error'>Error al cargar las imágenes: {error}</p>}
-            {!imagenesPersonaje.length && <p>No hay imágenes disponibles para este personaje.</p>}
 
-            <div className="contenerdorImagenes">
-                {imagenesPersonaje.map((imagen) => (
-                    <div key={imagen.id} className='contenedorImagen'>
-                        <img className='contenedorImagen-imagen' src={imagen.url} alt={imagen.nombre} />
+        <div className="contenerdorImagenes">
+            {imagenesPersonaje.map((imagen) => (
+                <div key={imagen.id} className='contenedorImagen'>
+                    <img className='contenedorImagen-imagen' src={imagen.url} alt={imagen.nombre} />
 
-                        <button className="btn-borrar" onClick={() => handleDelete(imagen.id as number)}>
-                            <img src="/public/images/borrar.png" alt="Borrar" />
-                        </button>
+                    <button type="button" className="btn-borrar-imagen" onClick={() => eliminarImagen(imagen.id as number)}>
+                        <img src="/public/images/borrar.png" alt="Borrar" />
+                    </button>
 
-                    </div>
-                ))}
-            </div>
+                </div>
+            ))}
         </div>
+
     );
 }

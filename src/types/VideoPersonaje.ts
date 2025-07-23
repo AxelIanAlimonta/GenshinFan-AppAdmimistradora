@@ -3,4 +3,5 @@ export interface VideoPersonaje {
     titulo?: string;
     url?: string;
     fechaPublicacion?: string;
+    personajeId?: number;
 }
