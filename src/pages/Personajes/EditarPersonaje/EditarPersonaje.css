@@ -1,5 +1,26 @@
-.formulario {
+.formularioEditarpersonaje {
     position: relative;
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.infoBasica {
+    gap: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.datosBasicos {
+    flex-basis: 400px;
+}
+
+.imagenesBasicas {
+    flex-basis: 400px;
 }
 
 .contenedorRarezaElementoRegion {
