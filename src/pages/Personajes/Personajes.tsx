@@ -25,8 +25,8 @@ export default function Personajes() {
             <div className="contenedorDePersonajes">
                 {personajes.map((personaje: Personaje) => (
                     <Row key={personaje.id} className='personaje-item'>
-                        <Col><MostrarImagen src={personaje.avatarURL} alt={personaje.nombre} /></Col>
-                        <Col className='personaje-nombre'><p>{personaje.nombre}</p></Col>
+                        <Col><MostrarImagen src={personaje.avatarURL} alt={personaje.nombre} width={100}/></Col>
+                        <Col><h3 className='personaje-nombre'>{personaje.nombre}</h3></Col>
                         <Col><Button variant="success" onClick={() => navigate(`/personajes/${personaje.id}/editar`)}>Editar</Button></Col>
                         <Col><Button variant="danger" onClick={() => deletePersonaje(personaje.id)}>Eliminar</Button></Col>
                     </Row>
