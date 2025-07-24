@@ -1,4 +1,4 @@
-import ImagenesPersonaje from "../ImagenesPersonaje";
+import MostrarImagenesPersonaje from "../MostrarImageesPersonaje/MostrarImagenesPersonaje";
 import { useNavigate, useParams } from "react-router";
 import { Button, Form } from "react-bootstrap";
 import type { ImagenPersonaje } from "../../../../types/ImagenPersonaje";
@@ -95,7 +95,7 @@ export default function AgregarImagenPersonaje() {
 
             </Form>
             <h2>Imagenes agregadas</h2>
-            <ImagenesPersonaje imagenesPersonaje={imagenesPersonaje} loading={loadingImagenes} error={errorImagenes} eliminarImagen={eliminarImagen} />
+            <MostrarImagenesPersonaje imagenesPersonaje={imagenesPersonaje} loading={loadingImagenes} error={errorImagenes} eliminarImagen={eliminarImagen} />
         </div>
     );
 }  

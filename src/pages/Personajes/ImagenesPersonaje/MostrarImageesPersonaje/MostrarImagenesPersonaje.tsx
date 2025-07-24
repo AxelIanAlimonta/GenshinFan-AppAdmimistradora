@@ -1,10 +1,10 @@
-import './ImagenesPersonaje.css';
-import Loading from '../../../components/Loading';
-import type { ImagenPersonaje } from '../../../types/ImagenPersonaje';
+import './MostrarImagenesPersonaje.css';
+import Loading from '../../../../components/Loading';
+import type { ImagenPersonaje } from '../../../../types/ImagenPersonaje';
 
 
 
-export default function ImagenesPersonaje({ imagenesPersonaje, loading, error, eliminarImagen }: {
+export default function MostrarImagenesPersonaje({ imagenesPersonaje, loading, error, eliminarImagen }: {
     imagenesPersonaje: Array<ImagenPersonaje>;
     loading: boolean;
     error: string | null;
