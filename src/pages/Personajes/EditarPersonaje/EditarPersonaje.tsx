@@ -187,19 +187,6 @@ export default function EditarPersonaje() {
 
                 </section>
 
-                    <Form.Group controlId="formSplashArtURL" className="grupoFormulario contenedorSplashArt">
-                        <Form.Label className='labelSplashArt'>URL del Splash Art</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Ingrese la URL del splash art del personaje"
-                            value={splashArtURL}
-                            onChange={(e) => setSplashArtURL(e.target.value)}
-                        />
-                        {splashArtURL && (
-                            <MostrarImagen src={splashArtURL} alt={nombre} style={{ width: 500 }} />
-                        )}
-                    </Form.Group>
-
                     <Form.Group controlId="formTarjetaURL" className="grupoFormulario contenedorTarjeta">
                         <Form.Label className='labelTarjeta'>URL de la Tarjeta</Form.Label>
                         <Form.Control
@@ -209,7 +196,20 @@ export default function EditarPersonaje() {
                             onChange={(e) => setTarjetaURL(e.target.value)}
                         />
                         {tarjetaURL && (
-                            <MostrarImagen src={tarjetaURL} alt={nombre} style={{ width: 200 }} />
+                            <MostrarImagen src={tarjetaURL} alt={nombre} style={{ height: 380 }} />
+                        )}
+                    </Form.Group>
+
+                    <Form.Group controlId="formSplashArtURL" className="grupoFormulario contenedorSplashArt">
+                        <Form.Label className='labelSplashArt'>URL del Splash Art</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder="Ingrese la URL del splash art del personaje"
+                            value={splashArtURL}
+                            onChange={(e) => setSplashArtURL(e.target.value)}
+                        />
+                        {splashArtURL && (
+                            <MostrarImagen src={splashArtURL} alt={nombre} style={{ width: 700 }} />
                         )}
                     </Form.Group>
 

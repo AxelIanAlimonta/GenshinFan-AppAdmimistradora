@@ -20,9 +20,7 @@
     flex-basis: 400px;
 }
 
-.imagenesBasicas {
-    flex-basis: 400px;
-}
+
 
 .contenedorRarezaElementoRegion {
     display: flex;
@@ -49,7 +47,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
     flex-basis: 200px;
 }
 
