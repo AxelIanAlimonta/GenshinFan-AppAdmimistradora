@@ -110,7 +110,7 @@ export default function EditarPersonaje() {
                     </Form.Group>
 
                     <Form.Group controlId="formAvatarURL" className="grupoFormulario contenedorAvatar">
-                        <MostrarImagen src={avatarURL} alt={nombre} />
+                        <MostrarImagen src={avatarURL} alt={nombre} style={{ width: 90 }} />
                         <div className='contenedorAvatar-labelYcontrol'>
                             <Form.Label>URL del Avatar</Form.Label>
                             <Form.Control
@@ -186,7 +186,6 @@ export default function EditarPersonaje() {
                     </Form.Group>
 
                 </section>
-                <section className="imagenesBasicas">
 
                     <Form.Group controlId="formSplashArtURL" className="grupoFormulario contenedorSplashArt">
                         <Form.Label className='labelSplashArt'>URL del Splash Art</Form.Label>
@@ -197,7 +196,7 @@ export default function EditarPersonaje() {
                             onChange={(e) => setSplashArtURL(e.target.value)}
                         />
                         {splashArtURL && (
-                            <MostrarImagen src={splashArtURL} alt={nombre} width={500} />
+                            <MostrarImagen src={splashArtURL} alt={nombre} style={{ width: 500 }} />
                         )}
                     </Form.Group>
 
@@ -210,11 +209,10 @@ export default function EditarPersonaje() {
                             onChange={(e) => setTarjetaURL(e.target.value)}
                         />
                         {tarjetaURL && (
-                            <MostrarImagen src={tarjetaURL} alt={nombre} width={200} />
+                            <MostrarImagen src={tarjetaURL} alt={nombre} style={{ width: 200 }} />
                         )}
                     </Form.Group>
 
-                </section>
             </section>
 
 

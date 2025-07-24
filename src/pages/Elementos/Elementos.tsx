@@ -29,7 +29,7 @@ export default function Elementos() {
                         <p className="nombreElemento">{elemento.nombre}</p>
                     </Col>
                     <Col className='colIcono' sm="auto">
-                        <MostrarImagen src={elemento.iconoURL} alt={elemento.nombre} />
+                        <MostrarImagen src={elemento.iconoURL} alt={elemento.nombre} style={{ width: 75 }} />
                     </Col>
                     <Col className='colBtn'>
                         <Button variant="primary" onClick={() => navigate(`/elementos/${elemento.id}/editar`)}>

@@ -55,7 +55,7 @@ export default function CrearRegion() {
                         onChange={(e) => setImagenURL(e.target.value)}
                     />
                 </Form.Group>
-                <MostrarImagen src={imagenURL} alt={nombre} />
+                <MostrarImagen src={imagenURL} alt={nombre} style={{ width: 150 }} />
 
                 <Form.Group className="grupoFormularioBotones">
                     <Button type="submit" variant="success">Crear Región</Button>

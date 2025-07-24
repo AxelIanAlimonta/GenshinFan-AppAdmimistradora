@@ -45,7 +45,7 @@ export default function CrearElemento() {
                     <Form.Label>URL del Icono</Form.Label>
                     <Form.Control type="text" placeholder="Ingrese la URL del icono" value={iconoURL} onChange={(e) => setIconoURL(e.target.value)} />
                 </Form.Group>
-                <MostrarImagen src={iconoURL} alt={nombre} />
+                <MostrarImagen src={iconoURL} alt={nombre} style={{ width: 120 }} />
                 <FormGroup className="grupoFormularioBotones">
                     <Button type="submit" variant="success">Crear Elemento</Button>
                     <Button variant="danger" onClick={() => navigate('/elementos')}>Cancelar</Button>

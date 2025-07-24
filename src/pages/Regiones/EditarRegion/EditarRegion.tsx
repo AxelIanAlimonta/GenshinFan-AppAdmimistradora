@@ -72,7 +72,7 @@ export default function EditarRegion() {
                 </Form.Group>
 
                 <div className="contenedorImg">
-                    <MostrarImagen src={imagenURL} alt="Icono de la región" />
+                    <MostrarImagen src={imagenURL} alt="Icono de la región" style={{ width: 100 }} />
                 </div>
 
                 <div className="contenedorBotones">

@@ -51,7 +51,7 @@ export default function AgregarAnimacionPersonaje() {
             await agregarAnimacion(nuevaAnimacion);
             setUrl('');
             setTipoAnimacionId(undefined);
-            
+
         } catch (error) {
             console.error('Error al agregar la animación:', error);
             alert('Error al agregar la animación. Por favor, inténtelo de nuevo más tarde.');
@@ -90,7 +90,7 @@ export default function AgregarAnimacionPersonaje() {
                     style={{ marginBottom: '10px' }}
                 />
 
-                {url!='' && <MostrarImagen src={url} alt={`Animación ${tiposAnimacion.find(tipo => tipo.id === tipoAnimacionId)?.nombre}`} width={300} />}
+                {url != '' && <MostrarImagen src={url} alt={`Animación ${tiposAnimacion.find(tipo => tipo.id === tipoAnimacionId)?.nombre}`} style={{ maxHeight: 250 }} />}
             </Form.Group>
 
 

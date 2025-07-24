@@ -63,7 +63,7 @@ export default function CrearPersonaje() {
             </Form.Group>
 
             <Form.Group controlId="formAvatarURL" className="grupoFormulario contenedorAvatar">
-                <MostrarImagen src={avatarURL} alt={nombre} />
+                <MostrarImagen src={avatarURL} alt={nombre} style={{ maxWidth: 100 }} />
                 <div className='contenedorAvatar-labelYcontrol'>
                     <Form.Label>URL del Avatar</Form.Label>
                     <Form.Control
@@ -151,7 +151,7 @@ export default function CrearPersonaje() {
                     onChange={(e) => setSplashArtURL(e.target.value)}
                 />
                 {splashArtURL && (
-                    <MostrarImagen src={splashArtURL} alt={nombre} width={500} />
+                    <MostrarImagen src={splashArtURL} alt={nombre} style={{ width: 700 }} />
                 )}
             </Form.Group>
 
@@ -164,7 +164,7 @@ export default function CrearPersonaje() {
                     onChange={(e) => setTarjetaURL(e.target.value)}
                 />
                 {tarjetaURL && (
-                    <MostrarImagen src={tarjetaURL} alt={nombre} width={200} />
+                    <MostrarImagen src={tarjetaURL} alt={nombre} style={{ width: 200 }} />
                 )}
             </Form.Group>
 

@@ -65,7 +65,7 @@ export default function EditarElemento() {
                 <Form.Label>ImagenURL</Form.Label>
                 <Form.Control type="text" name="imagen" value={iconoURL} onChange={(e) => setIconoURL(e.target.value)} required />
             </Form.Group>
-            <MostrarImagen src={iconoURL} alt={nombre} />
+            <MostrarImagen src={iconoURL} alt={nombre} style={{ width: 120 }} />
 
             <div className="contenedorBotones">
                 <Button type="submit" variant="success">Actualizar Elemento</Button>

@@ -22,7 +22,7 @@ export default function Regiones() {
                             <p className="nombreRegion">{region.nombre}</p>
                         </Col>
                         <Col className="colImagen" sm="auto">
-                            <MostrarImagen src={region.imagenURL} alt={region.nombre} />
+                            <MostrarImagen src={region.imagenURL} alt={region.nombre} style={{ width: 75 }} />
                         </Col>
                         <Col className="colBtn">
                             <Button variant="primary" onClick={() => navigate(`/regiones/${region.id}/editar`)}>

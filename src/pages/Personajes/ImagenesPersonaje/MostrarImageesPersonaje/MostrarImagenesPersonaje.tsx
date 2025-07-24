@@ -2,6 +2,7 @@ import './MostrarImagenesPersonaje.css';
 import Loading from '../../../../components/Loading';
 import type { ImagenPersonaje } from '../../../../types/ImagenPersonaje';
 import { MagicMotion } from 'react-magic-motion';
+import MostrarImagen from '../../../../components/MostrarImagen';
 
 
 
@@ -35,7 +36,7 @@ export default function MostrarImagenesPersonaje({ imagenesPersonaje, loading, e
             <div className="contenerdorImagenes">
                 {imagenesPersonaje.map((imagen) => (
                     <div key={imagen.id} className='contenedorImagen'>
-                        <img className='contenedorImagen-imagen' src={imagen.url} alt={"imagen"} />
+                        <MostrarImagen src={imagen.url} alt={"imagen"} style={{ maxHeight: 290 }} />
 
                         <button type="button" className="btn-borrar-imagen" onClick={() => eliminarImagen(imagen.id as number)}>
                             <img src="/public/images/borrar.png" alt="Borrar" />
