@@ -9,7 +9,6 @@ import './AgregarImagenPersonaje.css';
 
 export default function AgregarImagenPersonaje() {
     const id = Number(useParams().id);
-    const [nombre, setNombre] = useState<string>('');
     const [url, setUrl] = useState<string>('');
     const [calificacion, setCalificacion] = useState<ImagenPersonaje['calificacion']>(undefined);
 
@@ -24,7 +23,7 @@ export default function AgregarImagenPersonaje() {
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
-        if (!nombre || !url) {
+        if (!url) {
             alert("Por favor, complete todos los campos.");
             return;
         }
@@ -34,30 +33,25 @@ export default function AgregarImagenPersonaje() {
         }
 
         const nuevaImagen: ImagenPersonaje = {
-            nombre,
             url,
             personajeId: id,
             calificacion,
         };
 
         agregarImagen(nuevaImagen).then(() => {
-            setNombre('');
             setUrl('');
             setCalificacion(undefined);
         });
     }
 
-    
+
 
     return (
         <div>
             <h2>Agregar Imagen de Personaje</h2>
 
             <Form onSubmit={handleSubmit} className="formulario">
-                <Form.Group controlId="formImagenNombre" className="formulario-group">
-                    <Form.Label>Nombre de la Imagen</Form.Label>
-                    <Form.Control type="text" placeholder="Ingrese el nombre de la imagen" value={nombre} onChange={(e) => setNombre(e.target.value)} />
-                </Form.Group>
+
 
                 <Form.Group className="formulario-group">
                     <Form.Label>Calificación de la Imagen</Form.Label>
@@ -86,7 +80,7 @@ export default function AgregarImagenPersonaje() {
 
 
 
-                {url !== '' && <MostrarImagen src={url} alt={nombre} width={350} />}
+                {url !== '' && <MostrarImagen src={url} alt={"imagen"} width={350} />}
 
                 <Form.Group className="formulario-botones">
                     <Button variant="success" type="submit">Agregar Imagen</Button>

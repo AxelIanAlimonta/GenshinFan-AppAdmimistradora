@@ -35,7 +35,7 @@ export default function MostrarImagenesPersonaje({ imagenesPersonaje, loading, e
             <div className="contenerdorImagenes">
                 {imagenesPersonaje.map((imagen) => (
                     <div key={imagen.id} className='contenedorImagen'>
-                        <img className='contenedorImagen-imagen' src={imagen.url} alt={imagen.nombre} />
+                        <img className='contenedorImagen-imagen' src={imagen.url} alt={"imagen"} />
 
                         <button type="button" className="btn-borrar-imagen" onClick={() => eliminarImagen(imagen.id as number)}>
                             <img src="/public/images/borrar.png" alt="Borrar" />
