@@ -1,0 +1,35 @@
+.contenedorAnimaciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.contenedorAnimacion {
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+}
+
+
+
+.btn-borrar-animacion {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border: none;
+    border-radius: 0 !important;
+    background-color: transparent;
+
+}
+
+.btn-borrar-animacion img {
+    width: 100%;
+    object-fit: cover;
+}

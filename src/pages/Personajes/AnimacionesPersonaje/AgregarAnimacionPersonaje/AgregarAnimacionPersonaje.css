@@ -1,0 +1,26 @@
+.formulario {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.formulario-grupo {
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario-grupo-label {
+    align-self: flex-start;
+}
+
+.contenedor-botones {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}

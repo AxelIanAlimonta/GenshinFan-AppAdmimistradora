@@ -1,6 +1,7 @@
+import { useNavigate } from 'react-router';
+import useAnimacionesPersonajePorIdPersonaje from '../../hooks/Personajes/useAnimacionesPersonajePorIdPersonaje';
 import AgregarAnimacionPersonaje from '../Personajes/AnimacionesPersonaje/AgregarAnimacionPersonaje/AgregarAnimacionPersonaje';
 import './Prueba.css';
-import { useNavigate } from 'react-router';
 
 export default function Prueba() {
 
@@ -9,8 +10,8 @@ export default function Prueba() {
     return (
         <div>
             <h1>Prueba de Videos de Personaje</h1>
-            <AgregarAnimacionPersonaje  />
 
+            <button onClick={() => navigate('/personajes/animaciones-personaje/10/agregar')}>Ir a agregar animacion</button>
 
         </div>
     );

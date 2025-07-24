@@ -8,10 +8,12 @@ import { useRegiones } from '../../../hooks/Regiones/useRegiones';
 import { useNavigate, useParams } from 'react-router';
 import usePersonajeById from '../../../hooks/Personajes/usePersonajeById';
 import Loading from '../../../components/Loading';
-import ImagenesPersonaje from '../ImagenesPersonaje/ImagenesPersonaje';
+import MostrarImagenesPersonaje from '../ImagenesPersonaje/MostrarImageesPersonaje/MostrarImagenesPersonaje';
 import VideosPersonaje from '../VideosPersonaje/VideosPersonaje';
 import useImagenesPersonajePorIdPersonaje from '../../../hooks/Personajes/useImagenesPersonajePorIdPersonaje';
 import { useVideosPersonajePorIdPersonaje } from '../../../hooks/Personajes/useVideosPersonajePorIdPersonaje';
+import MostrarAnimacionesPersonaje from '../AnimacionesPersonaje/MostrarAnimacionesPersonaje/MostrarAnimacionesPersonaje';
+import useAnimacionesPersonajePorIdPersonaje from '../../../hooks/Personajes/useAnimacionesPersonajePorIdPersonaje';
 
 export default function EditarPersonaje() {
 
@@ -44,6 +46,7 @@ export default function EditarPersonaje() {
     const { regiones } = useRegiones();
     const { imagenesPersonaje, eliminarImagen, loading: loadingImagenes, error: errorImagenes } = useImagenesPersonajePorIdPersonaje(id);
     const { videos, deleteVideo, loading: loadingVideos, error: errorVideos } = useVideosPersonajePorIdPersonaje(id);
+    const { animaciones, eliminarAnimacion, loading: loadingAnimaciones, error: errorAnimaciones } = useAnimacionesPersonajePorIdPersonaje(id);
 
     const navigate = useNavigate();
 
@@ -208,23 +211,29 @@ export default function EditarPersonaje() {
                 )}
             </Form.Group>
 
-            <h3>Imagenes del personaje</h3>
-            <Button variant="primary" onClick={() => navigate(`/personajes/imagenes-personaje/${id}/agregar`)}>
-                Agregar Imagen
-            </Button>
             <section className="imagenesPersonajeSection">
-                <ImagenesPersonaje imagenesPersonaje={imagenesPersonaje} loading={loadingImagenes} error={errorImagenes} eliminarImagen={eliminarImagen} />
+                <h3>Imagenes del personaje</h3>
+                <Button variant="primary" onClick={() => navigate(`/personajes/imagenes-personaje/${id}/agregar`)}>
+                    Agregar Imagen
+                </Button>
+                <MostrarImagenesPersonaje imagenesPersonaje={imagenesPersonaje} loading={loadingImagenes} error={errorImagenes} eliminarImagen={eliminarImagen} />
             </section>
 
-            <h3>Videos del personaje</h3>
-            <Button variant="primary" onClick={() => navigate(`/personajes/videos-personaje/${id}/agregar`)}>
-                Agregar Video
-            </Button>
             <section className="videosPersonajeSection">
+                <h3>Videos del personaje</h3>
+                <Button variant="primary" onClick={() => navigate(`/personajes/videos-personaje/${id}/agregar`)}>
+                    Agregar Video
+                </Button>
                 <VideosPersonaje videos={videos} loading={loadingVideos} error={errorVideos} deleteVideo={deleteVideo} />
             </section>
 
-
+            <section className="animacionesPersonajeSection">
+                <h3>Animaciones del personaje</h3>
+                <Button variant="primary" onClick={() => navigate(`/personajes/animaciones-personaje/${id}/agregar`)}>
+                    Agregar Animación
+                </Button>
+                <MostrarAnimacionesPersonaje animaciones={animaciones} loading={loadingAnimaciones} error={errorAnimaciones} eliminarAnimacion={eliminarAnimacion} />
+            </section>
 
             <Form.Group className="grupoFormularioBotones">
                 <Button type="submit" variant="success">Guardar Cambios</Button>

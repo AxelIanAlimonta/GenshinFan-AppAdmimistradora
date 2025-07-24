@@ -71,3 +71,22 @@
     width: 70px;
     height: 70px;
 }
+
+.imagenesPersonajeSection,
+.videosPersonajeSection,
+.animacionesPersonajeSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+}
+
+.imagenesPersonajeSection h3,
+.videosPersonajeSection h3,
+.animacionesPersonajeSection h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0
+}
