@@ -98,7 +98,7 @@ export default function AgregarAnimacionPersonaje() {
 
             <Form.Group className='contenedor-botones'>
                 <Button type="submit">Agregar Animación</Button>
-                <Button variant="secondary" onClick={() => navigate(-1)}>Cancelar</Button>
+                <Button variant="secondary" onClick={() => navigate(-1)}>Volver al personaje</Button>
             </Form.Group>
 
         </Form>

@@ -211,7 +211,7 @@ export default function EditarPersonaje() {
                 )}
             </Form.Group>
 
-            <section className="imagenesPersonajeSection">
+            <section className="editarPersonaje-imagenesPersonajeSection">
                 <h3>Imagenes del personaje</h3>
                 <Button variant="primary" onClick={() => navigate(`/personajes/imagenes-personaje/${id}/agregar`)}>
                     Agregar Imagen
@@ -219,7 +219,7 @@ export default function EditarPersonaje() {
                 <MostrarImagenesPersonaje imagenesPersonaje={imagenesPersonaje} loading={loadingImagenes} error={errorImagenes} eliminarImagen={eliminarImagen} />
             </section>
 
-            <section className="videosPersonajeSection">
+            <section className="editarPersonaje-videosPersonajeSection">
                 <h3>Videos del personaje</h3>
                 <Button variant="primary" onClick={() => navigate(`/personajes/videos-personaje/${id}/agregar`)}>
                     Agregar Video
@@ -227,7 +227,7 @@ export default function EditarPersonaje() {
                 <VideosPersonaje videos={videos} loading={loadingVideos} error={errorVideos} deleteVideo={deleteVideo} />
             </section>
 
-            <section className="animacionesPersonajeSection">
+            <section className="editarPersonaje-animacionesPersonajeSection">
                 <h3>Animaciones del personaje</h3>
                 <Button variant="primary" onClick={() => navigate(`/personajes/animaciones-personaje/${id}/agregar`)}>
                     Agregar Animación

@@ -40,19 +40,26 @@
     flex-grow: 2;
 }
 
-.imagenesPersonajeSection {
+.editarPersonaje-imagenesPersonajeSection {
     max-height: 750px;
     overflow-y: scroll;
     width: 80vw;
     margin-bottom: 40px;
 }
 
-.videosPersonajeSection {
+.editarPersonaje-videosPersonajeSection {
     max-height: 750px;
     overflow-y: scroll;
     width: 80vw;
     margin-bottom: 40px;
 
+}
+
+.editarPersonaje-animacionesPersonajeSection {
+    max-height: 750px;
+    overflow-y: scroll;
+    width: 80vw;
+    margin-bottom: 40px;
 }
 
 .btn-guardarFlotante {
@@ -72,9 +79,9 @@
     height: 70px;
 }
 
-.imagenesPersonajeSection,
-.videosPersonajeSection,
-.animacionesPersonajeSection {
+.editarPersonaje-imagenesPersonajeSection,
+.editarPersonaje-videosPersonajeSection,
+.editarPersonaje-animacionesPersonajeSection {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,11 +89,12 @@
     gap: 13px;
 }
 
-.imagenesPersonajeSection h3,
-.videosPersonajeSection h3,
-.animacionesPersonajeSection h3 {
+.editarPersonaje-imagenesPersonajeSection h3,
+.editarPersonaje-videosPersonajeSection h3,
+.editarPersonaje-animacionesPersonajeSection h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0
+    margin: 0;
+    text-align: center;
 }
