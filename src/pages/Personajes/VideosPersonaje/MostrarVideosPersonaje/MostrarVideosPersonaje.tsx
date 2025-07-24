@@ -1,6 +1,5 @@
-import './VideosPersonaje.css';
-import { useVideosPersonajePorIdPersonaje } from '../../../hooks/Personajes/useVideosPersonajePorIdPersonaje';
-import type { VideoPersonaje } from '../../../types/VideoPersonaje';
+import './MostrarVideosPersonaje.css';
+import type { VideoPersonaje } from '../../../../types/VideoPersonaje';
 import { MagicMotion } from 'react-magic-motion';
 
 function getYoutubeEmbedUrl(url: string) {
@@ -8,7 +7,7 @@ function getYoutubeEmbedUrl(url: string) {
     return match ? `https://www.youtube.com/embed/${match[1]}` : null;
 }
 
-export default function VideosPersonaje({ videos, loading, error, deleteVideo }: {
+export default function MostrarVideosPersonaje({ videos, loading, error, deleteVideo }: {
     videos: VideoPersonaje[];
     loading: boolean;
     error: string | null;
@@ -19,6 +18,12 @@ export default function VideosPersonaje({ videos, loading, error, deleteVideo }:
     if (loading) return <div>Cargando...</div>;
     if (error) return <div>Error al cargar los videos</div>;
     if (!videos.length) return <div>No hay videos disponibles para este personaje.</div>;
+
+    videos.sort((a, b) => {
+        const fechaA = new Date(a.fechaPublicacion || '');
+        const fechaB = new Date(b.fechaPublicacion || '');
+        return fechaB.getTime() - fechaA.getTime();
+    });
 
     return (
         <MagicMotion>

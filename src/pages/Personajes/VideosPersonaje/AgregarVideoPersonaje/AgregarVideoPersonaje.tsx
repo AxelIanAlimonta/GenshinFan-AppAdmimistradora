@@ -1,11 +1,11 @@
 import { useNavigate, useParams } from 'react-router';
-import './VideosPersonaje.css';
+import './AgregarVideoPersonaje.css';
 import { useVideosPersonajePorIdPersonaje } from '../../../../hooks/Personajes/useVideosPersonajePorIdPersonaje';
 import { Button, Form } from 'react-bootstrap';
 import type { VideoPersonaje } from '../../../../types/VideoPersonaje';
 import { useState } from 'react';
 import Loading from '../../../../components/Loading';
-import VideosPersonaje from '../VideosPersonaje';
+import MostrarVideosPersonaje from '../MostrarVideosPersonaje/MostrarVideosPersonaje';
 
 export default function AgregarVideoPersonaje() {
 
@@ -94,7 +94,7 @@ export default function AgregarVideoPersonaje() {
 
             <h3>Videos Agregados</h3>
             {videos.length > 0 ? (
-                <VideosPersonaje videos={videos} deleteVideo={deleteVideo} error={error} loading={loading} />
+                <MostrarVideosPersonaje videos={videos} deleteVideo={deleteVideo} error={error} loading={loading} />
             ) : (
                 <div>No hay videos disponibles para este personaje.</div>
             )}

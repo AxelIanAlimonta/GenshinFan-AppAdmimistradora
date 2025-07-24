@@ -9,7 +9,7 @@ import { useNavigate, useParams } from 'react-router';
 import usePersonajeById from '../../../hooks/Personajes/usePersonajeById';
 import Loading from '../../../components/Loading';
 import MostrarImagenesPersonaje from '../ImagenesPersonaje/MostrarImageesPersonaje/MostrarImagenesPersonaje';
-import VideosPersonaje from '../VideosPersonaje/VideosPersonaje';
+import MostrarVideosPersonaje from '../VideosPersonaje/MostrarVideosPersonaje/MostrarVideosPersonaje';
 import useImagenesPersonajePorIdPersonaje from '../../../hooks/Personajes/useImagenesPersonajePorIdPersonaje';
 import { useVideosPersonajePorIdPersonaje } from '../../../hooks/Personajes/useVideosPersonajePorIdPersonaje';
 import MostrarAnimacionesPersonaje from '../AnimacionesPersonaje/MostrarAnimacionesPersonaje/MostrarAnimacionesPersonaje';
@@ -224,7 +224,7 @@ export default function EditarPersonaje() {
                 <Button variant="primary" onClick={() => navigate(`/personajes/videos-personaje/${id}/agregar`)}>
                     Agregar Video
                 </Button>
-                <VideosPersonaje videos={videos} loading={loadingVideos} error={errorVideos} deleteVideo={deleteVideo} />
+                <MostrarVideosPersonaje videos={videos} loading={loadingVideos} error={errorVideos} deleteVideo={deleteVideo} />
             </section>
 
             <section className="editarPersonaje-animacionesPersonajeSection">
