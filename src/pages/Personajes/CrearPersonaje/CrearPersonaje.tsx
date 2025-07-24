@@ -51,7 +51,7 @@ export default function CrearPersonaje() {
     }
 
     return (<>
-        <Form className="formularioCrearpersonaje" onSubmit={handleSubmit}>
+        <Form className="formularioCrearPersonaje" onSubmit={handleSubmit}>
             <section className='infoBasica'>
                 <section className='datosBasicos'>
                     <Form.Group controlId="formNombre" className="grupoFormulario">

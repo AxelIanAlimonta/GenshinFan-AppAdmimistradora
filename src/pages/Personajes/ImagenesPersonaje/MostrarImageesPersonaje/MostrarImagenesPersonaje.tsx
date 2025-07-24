@@ -36,7 +36,7 @@ export default function MostrarImagenesPersonaje({ imagenesPersonaje, loading, e
             <div className="contenerdorImagenes">
                 {imagenesPersonaje.map((imagen) => (
                     <div key={imagen.id} className='contenedorImagen'>
-                        <MostrarImagen src={imagen.url} alt={"imagen"} style={{ maxHeight: 290 }} />
+                        <MostrarImagen src={imagen.url} alt={"imagen"} style={{ maxHeight: 240 }} />
 
                         <button type="button" className="btn-borrar-imagen" onClick={() => eliminarImagen(imagen.id as number)}>
                             <img src="/public/images/borrar.png" alt="Borrar" />

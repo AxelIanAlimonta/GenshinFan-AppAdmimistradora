@@ -80,7 +80,7 @@ export default function AgregarImagenPersonaje() {
 
 
 
-                {url !== '' && <MostrarImagen src={url} alt={"imagen"} width={350} />}
+                {url !== '' && <MostrarImagen src={url} alt={"imagen"} style={{ height: '300px' }} />}
 
                 <Form.Group className="formulario-botones">
                     <Button variant="success" type="submit">Agregar Imagen</Button>

@@ -24,7 +24,7 @@ export default function MostrarAnimacionesPersonaje({ animaciones, loading, erro
             <div className='contenedorAnimaciones'>
                 {animaciones.map((animacion) => (
                     <div key={animacion.id} className='contenedorAnimacion'>
-                        <MostrarImagen src={animacion.url} alt={animacion.tipoAnimacion?.nombre} style={{maxHeight:290}}/>
+                        <MostrarImagen src={animacion.url} alt={animacion.tipoAnimacion?.nombre} style={{maxHeight:240}}/>
                         <button type="button" className="btn-borrar-animacion" onClick={() => eliminarAnimacion(animacion.id as number)}>
                             <img src="/public/images/borrar.png" alt="Borrar" />
                         </button>
