@@ -1,5 +1,5 @@
-import './MostrarVideosPersonaje.css';
-import type { VideoPersonaje } from '../../../../types/VideoPersonaje';
+import './MostrarVideos.css';
+import type { Video } from '../../types/Video';
 import { MagicMotion } from 'react-magic-motion';
 
 function getYoutubeEmbedUrl(url: string) {
@@ -8,7 +8,7 @@ function getYoutubeEmbedUrl(url: string) {
 }
 
 export default function MostrarVideosPersonaje({ videos, loading, error, deleteVideo }: {
-    videos: VideoPersonaje[];
+    videos: Video[];
     loading: boolean;
     error: string | null;
     deleteVideo: (id: number) => void;

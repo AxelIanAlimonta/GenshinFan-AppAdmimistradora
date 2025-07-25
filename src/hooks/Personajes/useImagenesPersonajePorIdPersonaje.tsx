@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { getImagenesPersonajeByPersonajeId, createImagenPersonaje, deleteImagenPersonaje, updateImagenPersonaje } from "../../api/imagenesPersonajeService";
-import type { ImagenPersonaje } from "../../types/ImagenPersonaje";
+import type { Imagen } from "../../types/Imagen";
 
 export default function useImagenesPersonajePorIdPersonaje(idPersonaje: number) {
-    const [imagenesPersonaje, setImagenesPersonaje] = useState<ImagenPersonaje[]>([]);
+    const [imagenesPersonaje, setImagenesPersonaje] = useState<Imagen[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -23,7 +23,7 @@ export default function useImagenesPersonajePorIdPersonaje(idPersonaje: number) 
         fetchImagenes();
     }, [idPersonaje]);
 
-    const agregarImagen = async (imagen: ImagenPersonaje) => {
+    const agregarImagen = async (imagen: Imagen) => {
         try {
             const newImagen = await createImagenPersonaje(imagen);
             setImagenesPersonaje((prev) => [...prev, newImagen]);
@@ -47,7 +47,7 @@ export default function useImagenesPersonajePorIdPersonaje(idPersonaje: number) 
         }
     };
 
-    const actualizarImagen = async (id: number, imagen: ImagenPersonaje) => {
+    const actualizarImagen = async (id: number, imagen: Imagen) => {
         try {
             const updatedImagen = await updateImagenPersonaje(id, imagen);
             setImagenesPersonaje((prev) =>

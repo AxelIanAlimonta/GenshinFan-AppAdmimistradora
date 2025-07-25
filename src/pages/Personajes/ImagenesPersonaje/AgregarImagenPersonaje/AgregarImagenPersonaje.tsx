@@ -1,7 +1,7 @@
-import MostrarImagenesPersonaje from "../MostrarImageesPersonaje/MostrarImagenesPersonaje";
+import MostrarImagenesPersonaje from "../../../../components/MostrarImagenes/MostrarImagenes";
 import { useNavigate, useParams } from "react-router";
 import { Button, Form } from "react-bootstrap";
-import type { ImagenPersonaje } from "../../../../types/ImagenPersonaje";
+import type { Imagen } from "../../../../types/Imagen";
 import useImagenesPersonajePorIdPersonaje from "../../../../hooks/Personajes/useImagenesPersonajePorIdPersonaje";
 import MostrarImagen from "../../../../components/MostrarImagen";
 import { useState } from "react";
@@ -10,7 +10,7 @@ import './AgregarImagenPersonaje.css';
 export default function AgregarImagenPersonaje() {
     const id = Number(useParams().id);
     const [url, setUrl] = useState<string>('');
-    const [calificacion, setCalificacion] = useState<ImagenPersonaje['calificacion']>(undefined);
+    const [calificacion, setCalificacion] = useState<Imagen['calificacion']>(undefined);
 
     const { imagenesPersonaje, loading: loadingImagenes, error: errorImagenes, agregarImagen, eliminarImagen } = useImagenesPersonajePorIdPersonaje(id);
     const navigate = useNavigate();
@@ -32,7 +32,7 @@ export default function AgregarImagenPersonaje() {
             return;
         }
 
-        const nuevaImagen: ImagenPersonaje = {
+        const nuevaImagen: Imagen = {
             url,
             personajeId: id,
             calificacion,
@@ -60,7 +60,7 @@ export default function AgregarImagenPersonaje() {
                         onChange={(e) => {
                             const value = Number(e.target.value);
                             if (value >= 1 && value <= 10) {
-                                setCalificacion(value as ImagenPersonaje['calificacion']);
+                                setCalificacion(value as Imagen['calificacion']);
                             } else {
                                 setCalificacion(undefined);
                             }

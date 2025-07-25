@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { createVideoPersonaje, getVideosPersonajeByPersonajeId, updateVideoPersonaje, deleteVideoPersonaje } from "../../api/videosPersonajeService";
-import type { VideoPersonaje } from "../../types/VideoPersonaje";
+import type { Video } from "../../types/Video";
 
 export function useVideosPersonajePorIdPersonaje(idPersonaje: number) {
 
-    const [videos, setVideos] = useState<VideoPersonaje[]>([]);
+    const [videos, setVideos] = useState<Video[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -21,7 +21,7 @@ export function useVideosPersonajePorIdPersonaje(idPersonaje: number) {
     }
 
     useEffect(() => {
-        const getVideos = async (): Promise<VideoPersonaje[]> => {
+        const getVideos = async (): Promise<Video[]> => {
             try {
                 const videos = await getVideosPersonajeByPersonajeId(idPersonaje);
                 setVideos(videos);
@@ -39,7 +39,7 @@ export function useVideosPersonajePorIdPersonaje(idPersonaje: number) {
 
 
 
-    const createVideo = async (video: VideoPersonaje) => {
+    const createVideo = async (video: Video) => {
         try {
             const newVideo = await createVideoPersonaje(video);
             setVideos((prevVideos) => [...prevVideos, newVideo]);
@@ -52,7 +52,7 @@ export function useVideosPersonajePorIdPersonaje(idPersonaje: number) {
     };
 
 
-    const updateVideo = async (id: number, video: VideoPersonaje) => {
+    const updateVideo = async (id: number, video: Video) => {
         try {
             const updatedVideo = await updateVideoPersonaje(id, video);
             setVideos((prevVideos) =>

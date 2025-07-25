@@ -1,7 +1,7 @@
-import type { ImagenPersonaje } from '../types/ImagenPersonaje';
-const url = `${import.meta.env.VITE_API_BASE_URL}/ImagenPersonaje`;
+import type { Imagen } from '../types/Imagen';
+const url = `${import.meta.env.VITE_API_BASE_URL}/Imagen`;
 
-async function getImagenesPersonaje(): Promise<ImagenPersonaje[]> {
+async function getImagenesPersonaje(): Promise<Imagen[]> {
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -9,7 +9,7 @@ async function getImagenesPersonaje(): Promise<ImagenPersonaje[]> {
     return response.json();
 }
 
-async function getImagenPersonajeById(id: number): Promise<ImagenPersonaje> {
+async function getImagenPersonajeById(id: number): Promise<Imagen> {
     const response = await fetch(`${url}/${id}`);
     if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -18,7 +18,7 @@ async function getImagenPersonajeById(id: number): Promise<ImagenPersonaje> {
     return imagen;
 }
 
-async function createImagenPersonaje(imagen: ImagenPersonaje): Promise<ImagenPersonaje> {
+async function createImagenPersonaje(imagen: Imagen): Promise<Imagen> {
     const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -32,7 +32,7 @@ async function createImagenPersonaje(imagen: ImagenPersonaje): Promise<ImagenPer
     return response.json();
 }
 
-async function updateImagenPersonaje(id: number, imagen: ImagenPersonaje): Promise<ImagenPersonaje> {
+async function updateImagenPersonaje(id: number, imagen: Imagen): Promise<Imagen> {
     const response = await fetch(`${url}/${id}`, {
         method: 'PUT',
         headers: {
@@ -55,7 +55,7 @@ async function deleteImagenPersonaje(id: number): Promise<void> {
     }
 }
 
-async function getImagenesPersonajeByPersonajeId(personajeId: number): Promise<ImagenPersonaje[]> {
+async function getImagenesPersonajeByPersonajeId(personajeId: number): Promise<Imagen[]> {
     const response = await fetch(`${url}/personaje/${personajeId}`);
     if (!response.ok) {
         throw new Error('Network response was not ok');

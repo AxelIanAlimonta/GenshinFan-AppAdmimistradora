@@ -2,10 +2,10 @@ import { useNavigate, useParams } from 'react-router';
 import './AgregarVideoPersonaje.css';
 import { useVideosPersonajePorIdPersonaje } from '../../../../hooks/Personajes/useVideosPersonajePorIdPersonaje';
 import { Button, Form } from 'react-bootstrap';
-import type { VideoPersonaje } from '../../../../types/VideoPersonaje';
+import type { Video } from '../../../../types/Video';
 import { useState } from 'react';
 import Loading from '../../../../components/Loading';
-import MostrarVideosPersonaje from '../MostrarVideosPersonaje/MostrarVideosPersonaje';
+import MostrarVideosPersonaje from '../../../../components/MostrarVideos/MostrarVideos';
 
 export default function AgregarVideoPersonaje() {
 
@@ -40,7 +40,7 @@ export default function AgregarVideoPersonaje() {
             alert("Por favor, complete todos los campos.");
             return;
         }
-        const nuevoVideo: VideoPersonaje = {
+        const nuevoVideo: Video = {
             titulo,
             url,
             fechaPublicacion,

@@ -1,13 +1,13 @@
-import './MostrarImagenesPersonaje.css';
-import Loading from '../../../../components/Loading';
-import type { ImagenPersonaje } from '../../../../types/ImagenPersonaje';
+import './MostrarImagenes.css';
+import Loading from '../Loading';
+import type { Imagen } from '../../types/Imagen';
 import { MagicMotion } from 'react-magic-motion';
-import MostrarImagen from '../../../../components/MostrarImagen';
+import MostrarImagen from '../MostrarImagen';
 
 
 
 export default function MostrarImagenesPersonaje({ imagenesPersonaje, loading, error, eliminarImagen }: {
-    imagenesPersonaje: Array<ImagenPersonaje>;
+    imagenesPersonaje: Array<Imagen>;
     loading: boolean;
     error: string | null;
     eliminarImagen: (id: number) => void;

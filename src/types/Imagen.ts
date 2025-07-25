@@ -1,4 +1,4 @@
-export interface ImagenPersonaje {
+export interface Imagen {
     id?: number;
     url?: string;
     personajeId?: number;
