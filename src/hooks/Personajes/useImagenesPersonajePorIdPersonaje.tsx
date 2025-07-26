@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getImagenesPersonajeByPersonajeId, createImagenPersonaje, deleteImagenPersonaje, updateImagenPersonaje } from "../../api/imagenesPersonajeService";
+import { getImagenesPersonajeByPersonajeId, createImagenPersonaje, deleteImagenPersonaje, updateImagenPersonaje } from "../../api/imagenesService";
 import type { Imagen } from "../../types/Imagen";
 
 export default function useImagenesPersonajePorIdPersonaje(idPersonaje: number) {

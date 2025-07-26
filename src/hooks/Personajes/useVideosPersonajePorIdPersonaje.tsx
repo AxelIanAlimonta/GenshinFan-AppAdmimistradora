@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createVideoPersonaje, getVideosPersonajeByPersonajeId, updateVideoPersonaje, deleteVideoPersonaje } from "../../api/videosPersonajeService";
+import { createVideoPersonaje, getVideosPersonajeByPersonajeId, updateVideoPersonaje, deleteVideoPersonaje } from "../../api/videosService";
 import type { Video } from "../../types/Video";
 
 export function useVideosPersonajePorIdPersonaje(idPersonaje: number) {
