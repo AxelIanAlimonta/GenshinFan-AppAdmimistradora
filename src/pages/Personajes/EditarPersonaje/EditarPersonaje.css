@@ -62,14 +62,12 @@
 
 .editarPersonaje-imagenesPersonajeSection {
     max-height: 750px;
-    overflow-y: scroll;
     width: 80vw;
     margin-bottom: 40px;
 }
 
 .editarPersonaje-videosPersonajeSection {
     max-height: 750px;
-    overflow-y: scroll;
     width: 80vw;
     margin-bottom: 40px;
 
@@ -77,7 +75,6 @@
 
 .editarPersonaje-animacionesPersonajeSection {
     max-height: 750px;
-    overflow-y: scroll;
     width: 80vw;
     margin-bottom: 40px;
 }
