@@ -1,7 +1,7 @@
 import './EditarPersonaje.css';
 import type { Personaje } from '../../../types/Personaje';
 import { useEffect, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Tab, Tabs } from 'react-bootstrap';
 import MostrarImagen from '../../../components/MostrarImagen';
 import { useElementos } from '../../../hooks/Elementos/useElementos';
 import { useRegiones } from '../../../hooks/Regiones/useRegiones';
@@ -96,150 +96,159 @@ export default function EditarPersonaje() {
     return (<>
         <Form className="formularioEditarpersonaje" onSubmit={handleSubmit}>
 
-            <section className="infoBasica">
-                <section className="datosBasicos">
+            <Tabs defaultActiveKey="infoBasica" className="mb-3">
+                <Tab eventKey="infoBasica" title="Información Básica">
+                    <section className="infoBasica">
+                        <section className="datosBasicos">
 
-                    <Form.Group controlId="formNombre" className="grupoFormulario">
-                        <Form.Label>Nombre</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Ingrese el nombre del personaje"
-                            value={nombre}
-                            onChange={(e) => setNombre(e.target.value)}
-                        />
-                    </Form.Group>
+                            <Form.Group controlId="formNombre" className="grupoFormulario">
+                                <Form.Label>Nombre</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Ingrese el nombre del personaje"
+                                    value={nombre}
+                                    onChange={(e) => setNombre(e.target.value)}
+                                />
+                            </Form.Group>
 
-                    <Form.Group controlId="formAvatarURL" className="grupoFormulario contenedorAvatar">
-                        <MostrarImagen src={avatarURL} alt={nombre} style={{ width: 90 }} />
-                        <div className='contenedorAvatar-labelYcontrol'>
-                            <Form.Label>URL del Avatar</Form.Label>
+                            <Form.Group controlId="formAvatarURL" className="grupoFormulario contenedorAvatar">
+                                <MostrarImagen src={avatarURL} alt={nombre} style={{ width: 90 }} />
+                                <div className='contenedorAvatar-labelYcontrol'>
+                                    <Form.Label>URL del Avatar</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Ingrese la URL del avatar del personaje"
+                                        value={avatarURL}
+                                        onChange={(e) => setAvatarURL(e.target.value)}
+                                    />
+                                </div>
+
+                            </Form.Group>
+
+                            <Form.Group controlId="formDescripcion" className="grupoFormulario">
+                                <Form.Label>Descripción</Form.Label>
+                                <Form.Control as={"textarea"}
+                                    placeholder="Ingrese una breve descripción del personaje"
+                                    value={descripcion}
+                                    onChange={(e) => setDescripcion(e.target.value)}
+                                />
+                            </Form.Group>
+
+                            <div className="contenedorRarezaElementoRegion">
+                                <Form.Group controlId="formRareza" className="grupoFormulario">
+                                    <Form.Label className='contenedorRarezaElementoRegion-label'>Rareza</Form.Label>
+                                    <Form.Select
+                                        value={rareza}
+                                        onChange={(e) => setRareza(Number(e.target.value))}
+                                    >
+                                        <option value="">Seleccione la rareza</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </Form.Select>
+                                </Form.Group>
+                                <Form.Group controlId="formElemento" className="grupoFormulario">
+                                    <Form.Label className='contenedorRarezaElementoRegion-label'>Elemento</Form.Label>
+                                    <Form.Select
+                                        value={elementoId}
+                                        onChange={(e) => setElementoId(Number(e.target.value))}
+                                    >
+                                        <option value="">Seleccione un elemento</option>
+                                        {elementos.map((elemento) => (
+                                            <option key={elemento.id} value={elemento.id}>
+                                                {elemento.nombre}
+                                            </option>
+                                        ))}
+                                    </Form.Select>
+                                </Form.Group>
+
+                                <Form.Group controlId="formRegion" className="grupoFormulario">
+                                    <Form.Label className='contenedorRarezaElementoRegion-label'>Región</Form.Label>
+                                    <Form.Select
+                                        value={regionId}
+                                        onChange={(e) => setRegionId(Number(e.target.value))}
+                                    >
+                                        <option value="">Seleccione una región</option>
+                                        {regiones.map((region) => (
+                                            <option key={region.id} value={region.id}>
+                                                {region.nombre}
+                                            </option>
+                                        ))}
+                                    </Form.Select>
+                                </Form.Group>
+                            </div>
+
+                            <Form.Group controlId="formFechaLanzamiento" className="grupoFormulario">
+                                <Form.Label>Fecha de Lanzamiento</Form.Label>
+                                <Form.Control
+                                    type="date"
+                                    placeholder="Ingrese la fecha de lanzamiento del personaje"
+                                    value={fechaLanzamiento}
+                                    onChange={(e) => setFechaLanzamiento(e.target.value)}
+                                />
+                            </Form.Group>
+
+                        </section>
+
+                        <Form.Group controlId="formTarjetaURL" className="grupoFormulario contenedorTarjeta">
+                            <Form.Label className='labelTarjeta'>URL de la Tarjeta</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Ingrese la URL del avatar del personaje"
-                                value={avatarURL}
-                                onChange={(e) => setAvatarURL(e.target.value)}
+                                placeholder="Ingrese la URL de la tarjeta del personaje"
+                                value={tarjetaURL}
+                                onChange={(e) => setTarjetaURL(e.target.value)}
                             />
-                        </div>
-
-                    </Form.Group>
-
-                    <Form.Group controlId="formDescripcion" className="grupoFormulario">
-                        <Form.Label>Descripción</Form.Label>
-                        <Form.Control as={"textarea"}
-                            placeholder="Ingrese una breve descripción del personaje"
-                            value={descripcion}
-                            onChange={(e) => setDescripcion(e.target.value)}
-                        />
-                    </Form.Group>
-
-                    <div className="contenedorRarezaElementoRegion">
-                        <Form.Group controlId="formRareza" className="grupoFormulario">
-                            <Form.Label className='contenedorRarezaElementoRegion-label'>Rareza</Form.Label>
-                            <Form.Select
-                                value={rareza}
-                                onChange={(e) => setRareza(Number(e.target.value))}
-                            >
-                                <option value="">Seleccione la rareza</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </Form.Select>
-                        </Form.Group>
-                        <Form.Group controlId="formElemento" className="grupoFormulario">
-                            <Form.Label className='contenedorRarezaElementoRegion-label'>Elemento</Form.Label>
-                            <Form.Select
-                                value={elementoId}
-                                onChange={(e) => setElementoId(Number(e.target.value))}
-                            >
-                                <option value="">Seleccione un elemento</option>
-                                {elementos.map((elemento) => (
-                                    <option key={elemento.id} value={elemento.id}>
-                                        {elemento.nombre}
-                                    </option>
-                                ))}
-                            </Form.Select>
+                            {tarjetaURL && (
+                                <MostrarImagen src={tarjetaURL} alt={nombre} style={{ height: 380 }} />
+                            )}
                         </Form.Group>
 
-                        <Form.Group controlId="formRegion" className="grupoFormulario">
-                            <Form.Label className='contenedorRarezaElementoRegion-label'>Región</Form.Label>
-                            <Form.Select
-                                value={regionId}
-                                onChange={(e) => setRegionId(Number(e.target.value))}
-                            >
-                                <option value="">Seleccione una región</option>
-                                {regiones.map((region) => (
-                                    <option key={region.id} value={region.id}>
-                                        {region.nombre}
-                                    </option>
-                                ))}
-                            </Form.Select>
+                        <Form.Group controlId="formSplashArtURL" className="grupoFormulario contenedorSplashArt">
+                            <Form.Label className='labelSplashArt'>URL del Splash Art</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Ingrese la URL del splash art del personaje"
+                                value={splashArtURL}
+                                onChange={(e) => setSplashArtURL(e.target.value)}
+                            />
+                            {splashArtURL && (
+                                <MostrarImagen src={splashArtURL} alt={nombre} style={{ width: 700 }} />
+                            )}
                         </Form.Group>
-                    </div>
 
-                    <Form.Group controlId="formFechaLanzamiento" className="grupoFormulario">
-                        <Form.Label>Fecha de Lanzamiento</Form.Label>
-                        <Form.Control
-                            type="date"
-                            placeholder="Ingrese la fecha de lanzamiento del personaje"
-                            value={fechaLanzamiento}
-                            onChange={(e) => setFechaLanzamiento(e.target.value)}
-                        />
-                    </Form.Group>
+                    </section>
+                </Tab>
 
-                </section>
+                <Tab eventKey="imagenes" title="Imágenes">
+                    <section className="editarPersonaje-imagenesPersonajeSection">
+                        <h3>Imagenes del personaje</h3>
+                        <Button variant="primary" onClick={() => navigate(`/personajes/imagenes-personaje/${id}/agregar`)}>
+                            Agregar Imagen
+                        </Button>
+                        <MostrarImagenesPersonaje imagenesPersonaje={imagenesPersonaje} loading={loadingImagenes} error={errorImagenes} eliminarImagen={eliminarImagen} />
+                    </section>
+                </Tab>
 
-                    <Form.Group controlId="formTarjetaURL" className="grupoFormulario contenedorTarjeta">
-                        <Form.Label className='labelTarjeta'>URL de la Tarjeta</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Ingrese la URL de la tarjeta del personaje"
-                            value={tarjetaURL}
-                            onChange={(e) => setTarjetaURL(e.target.value)}
-                        />
-                        {tarjetaURL && (
-                            <MostrarImagen src={tarjetaURL} alt={nombre} style={{ height: 380 }} />
-                        )}
-                    </Form.Group>
+                <Tab eventKey="videos" title="Videos">
 
-                    <Form.Group controlId="formSplashArtURL" className="grupoFormulario contenedorSplashArt">
-                        <Form.Label className='labelSplashArt'>URL del Splash Art</Form.Label>
-                        <Form.Control
-                            type="text"
-                            placeholder="Ingrese la URL del splash art del personaje"
-                            value={splashArtURL}
-                            onChange={(e) => setSplashArtURL(e.target.value)}
-                        />
-                        {splashArtURL && (
-                            <MostrarImagen src={splashArtURL} alt={nombre} style={{ width: 700 }} />
-                        )}
-                    </Form.Group>
+                    <section className="editarPersonaje-videosPersonajeSection">
+                        <h3>Videos del personaje</h3>
+                        <Button variant="primary" onClick={() => navigate(`/personajes/videos-personaje/${id}/agregar`)}>
+                            Agregar Video
+                        </Button>
+                        <MostrarVideosPersonaje videos={videos} loading={loadingVideos} error={errorVideos} deleteVideo={deleteVideo} />
+                    </section>
+                </Tab>
 
-            </section>
-
-
-
-            <section className="editarPersonaje-imagenesPersonajeSection">
-                <h3>Imagenes del personaje</h3>
-                <Button variant="primary" onClick={() => navigate(`/personajes/imagenes-personaje/${id}/agregar`)}>
-                    Agregar Imagen
-                </Button>
-                <MostrarImagenesPersonaje imagenesPersonaje={imagenesPersonaje} loading={loadingImagenes} error={errorImagenes} eliminarImagen={eliminarImagen} />
-            </section>
-
-            <section className="editarPersonaje-videosPersonajeSection">
-                <h3>Videos del personaje</h3>
-                <Button variant="primary" onClick={() => navigate(`/personajes/videos-personaje/${id}/agregar`)}>
-                    Agregar Video
-                </Button>
-                <MostrarVideosPersonaje videos={videos} loading={loadingVideos} error={errorVideos} deleteVideo={deleteVideo} />
-            </section>
-
-            <section className="editarPersonaje-animacionesPersonajeSection">
-                <h3>Animaciones del personaje</h3>
-                <Button variant="primary" onClick={() => navigate(`/personajes/animaciones-personaje/${id}/agregar`)}>
-                    Agregar Animación
-                </Button>
-                <MostrarAnimacionesPersonaje animaciones={animaciones} loading={loadingAnimaciones} error={errorAnimaciones} eliminarAnimacion={eliminarAnimacion} />
-            </section>
+                <Tab eventKey="animaciones" title="Animaciones">
+                    <section className="editarPersonaje-animacionesPersonajeSection">
+                        <h3>Animaciones del personaje</h3>
+                        <Button variant="primary" onClick={() => navigate(`/personajes/animaciones-personaje/${id}/agregar`)}>
+                            Agregar Animación
+                        </Button>
+                        <MostrarAnimacionesPersonaje animaciones={animaciones} loading={loadingAnimaciones} error={errorAnimaciones} eliminarAnimacion={eliminarAnimacion} />
+                    </section>
+                </Tab>
+            </Tabs>
 
             <Form.Group className="grupoFormularioBotones">
                 <Button type="submit" variant="success">Guardar Cambios</Button>
