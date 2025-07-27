@@ -1,0 +1,59 @@
+.mostrarVideo-container {
+    width: 350px;
+}
+
+/* Envoltorio responsivo para el iframe */
+.mostrarVideo-responsive {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.mostrarVideo-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 8px;
+    /* Bordes redondeados */
+
+}
+
+.mostrarVideo-seccionEtiquetasYBtns {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.mostrarVideo-contenedorDeEtiquetas {
+    display: flex;
+    margin-right: 10px;
+    flex-grow: 1;
+}
+
+.mostrarVideo-contenedorDeBotones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px;
+}
+
+.mostrarVideo-contenedorDeBotones-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 24px;
+}
+
+.mostrarVideo-contenedorDeBotones-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15%;
+}
