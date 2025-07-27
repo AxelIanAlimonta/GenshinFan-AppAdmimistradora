@@ -1,5 +1,4 @@
 .formularioEditarpersonaje {
-    position: relative;
     width: 90vw;
     display: flex;
     justify-content: center;
@@ -61,20 +60,17 @@
 }
 
 .editarPersonaje-imagenesPersonajeSection {
-    max-height: 750px;
     width: 80vw;
     margin-bottom: 40px;
 }
 
 .editarPersonaje-videosPersonajeSection {
-    max-height: 750px;
     width: 80vw;
     margin-bottom: 40px;
 
 }
 
 .editarPersonaje-animacionesPersonajeSection {
-    max-height: 750px;
     width: 80vw;
     margin-bottom: 40px;
 }
@@ -104,6 +100,8 @@
     justify-content: center;
     align-items: center;
     gap: 13px;
+    position: static;
+    z-index: auto;
 }
 
 .editarPersonaje-imagenesPersonajeSection h3,
