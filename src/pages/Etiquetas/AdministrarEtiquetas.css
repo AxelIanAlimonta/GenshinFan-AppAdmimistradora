@@ -1,0 +1,11 @@
+@media (max-width: 768px) {
+    .administrar-etiquetas {
+        width: 80vw;
+    }
+}
+
+@media (min-width: 769px) {
+    .administrar-etiquetas {
+        width: 600px;
+    }
+}

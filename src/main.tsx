@@ -21,7 +21,7 @@ import Prueba from './pages/Pruebas/Prueba.tsx';
 import AgregarImagenPersonaje from './pages/Personajes/ImagenesPersonaje/AgregarImagenPersonaje/AgregarImagenPersonaje.tsx';
 import AgregarVideoPersonaje from './pages/Personajes/VideosPersonaje/AgregarVideoPersonaje/AgregarVideoPersonaje.tsx';
 import AgregarAnimacionPersonaje from './pages/Personajes/AnimacionesPersonaje/AgregarAnimacionPersonaje/AgregarAnimacionPersonaje.tsx';
-import AdministrarEtiquetas from './pages/Etiquetas/AdministrarEtiquetas.1.tsx';
+import AdministrarEtiquetas from './pages/Etiquetas/AdministrarEtiquetas.tsx';
 
 
 createRoot(document.getElementById('root')!).render(
