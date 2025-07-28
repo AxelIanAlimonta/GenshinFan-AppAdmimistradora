@@ -21,6 +21,7 @@ function NavBar() {
                         <Nav.Link onClick={() => navigate('/personajes')}>Personajes</Nav.Link>
                         <Nav.Link onClick={() => navigate('/pruebas')}>Pruebas</Nav.Link>
                         <Nav.Link onClick={() => navigate('/etiquetas')}>Etiquetas</Nav.Link>
+                        <Nav.Link onClick={() => navigate('/administrar-videos')}>Administrar Videos</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

@@ -1,0 +1,13 @@
+.editarVideo-container{
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.editarVideo-videoInfo{
+    flex-basis: 500px;
+    flex-shrink: 1;
+}
+

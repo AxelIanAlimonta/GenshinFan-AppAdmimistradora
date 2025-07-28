@@ -1,18 +1,15 @@
 import './MostrarVideos.css';
 import type { Video } from '../../types/Video';
-import { MagicMotion } from 'react-magic-motion';
 import MostrarVideo from '../MostrarVideo/MostrarVideo';
 
 
 
-export default function MostrarVideosPersonaje({ videos, loading, error, deleteVideo }: {
+export default function MostrarVideos({ videos, loading, error, borrarVideo }: {
     videos: Video[];
     loading: boolean;
     error: string | null;
-    deleteVideo: (id: number) => void;
+    borrarVideo: (id: number) => void;
 }) {
-
-
     if (loading) return <div>Cargando...</div>;
     if (error) return <div>Error al cargar los videos</div>;
     if (!videos.length) return <div>No hay videos disponibles para este personaje.</div>;
@@ -24,14 +21,12 @@ export default function MostrarVideosPersonaje({ videos, loading, error, deleteV
     });
 
     return (
-        <MagicMotion>
-            <div className='contenedorVideos'>
-                {videos.map((video) => {
-                    return (
-                        <MostrarVideo key={video.id} video={video} eliminarVideo={deleteVideo} />
-                    );
-                })}
-            </div>
-        </MagicMotion>
+        <div className='contenedorVideos'>
+            {videos.map((video) => {
+                return (
+                    <MostrarVideo key={video.id} video={video} eliminarVideo={borrarVideo} editarVideo />
+                );
+            })}
+        </div>
     );
 }

@@ -1,19 +1,20 @@
-import { useNavigate } from 'react-router';
-import useAnimacionesPersonajePorIdPersonaje from '../../hooks/Personajes/useAnimacionesPersonajePorIdPersonaje';
-import AgregarAnimacionPersonaje from '../Personajes/AnimacionesPersonaje/AgregarAnimacionPersonaje/AgregarAnimacionPersonaje';
+import MostrarVideo from '../../components/MostrarVideo/MostrarVideo';
+import { useVideosPersonajePorIdPersonaje } from '../../hooks/Personajes/useVideosPersonajePorIdPersonaje';
+import type { Video } from '../../types/Video';
 import './Prueba.css';
 
 export default function Prueba() {
-
-    const navigate = useNavigate();
+    const { videos } = useVideosPersonajePorIdPersonaje(10);
+    const videosFiltrados: Video[] = videos.filter(video => video.id === 33);
 
     return (
-        <div>
-            <h1>Prueba de Videos de Personaje</h1>
+        <>
 
-            <button onClick={() => navigate('/personajes/animaciones-personaje/10/agregar')}>Ir a agregar animacion</button>
+            {videosFiltrados.map((video) => (
+                <MostrarVideo key={video.id} video={video} />
+            ))}
 
-        </div>
+        </>
     );
 }
 
