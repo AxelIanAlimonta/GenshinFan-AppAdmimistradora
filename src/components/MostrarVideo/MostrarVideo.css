@@ -42,6 +42,7 @@
 
 .mostrarVideo-contenedorDeEtiquetas {
     display: flex;
+    flex-wrap: wrap;
     margin-right: 10px;
     flex-grow: 1;
 }

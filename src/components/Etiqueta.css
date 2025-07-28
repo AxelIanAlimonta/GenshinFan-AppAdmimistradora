@@ -1,23 +1,41 @@
- .etiqueta {
-    display: inline-flex;
-    align-items: center;
-    background-color: #e0e0e0;
-    border-radius: 12px;
-    padding: 2px 6px;
-    margin: 3px;
-    font-family: sans-serif;
-    font-size: 12px;
-  }
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 12px;
+  padding: 2px 6px;
+  margin: 3px;
+  font-family: sans-serif;
+  font-size: 12px;
+  color: black;
+}
 
-  .etiqueta .cerrar {
-    margin-left: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 12px;
-    color: #555;
-    transition: color 0.2s;
-  }
+/* Colores según tipo */
+.etiqueta-normal {
+  background-color: #e0e0e0;
+}
 
-  .etiqueta .cerrar:hover {
-    color: red;
-  }
+.etiqueta-roja {
+  background-color: #ffcdd2;
+}
+
+.etiqueta-verde {
+  background-color: #c8e6c9;
+}
+
+.etiqueta .cerrar,
+.etiqueta .agregar {
+  margin-left: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+  color: #555;
+  transition: color 0.2s;
+}
+
+.etiqueta .cerrar {
+  color: red;
+}
+
+.etiqueta .agregar {
+  color: green;
+}

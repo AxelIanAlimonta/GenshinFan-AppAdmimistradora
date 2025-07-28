@@ -1,10 +1,30 @@
-import type { Etiqueta } from '../types/Etiqueta';
+import type { Etiqueta as EtiquetaType } from '../types/Etiqueta';
 import './Etiqueta.css';
 
-export default function Etiqueta({ etiqueta, handleCrossClick }: { etiqueta: Etiqueta, handleCrossClick?: (id: number) => void }) {
+export default function Etiqueta({
+  etiqueta,
+  handleCrossClick,
+  handlePlusClick
+}: {
+  etiqueta: EtiquetaType,
+  handleCrossClick?: () => void,
+  handlePlusClick?: () => void
+}) {
+  const tipoClase = handleCrossClick
+    ? 'etiqueta-roja'
+    : handlePlusClick
+    ? 'etiqueta-verde'
+    : 'etiqueta-normal';
 
-    return (<div className="etiqueta">
-        {etiqueta.nombre}
-        {handleCrossClick && <span className="cerrar" onClick={() => handleCrossClick?.(etiqueta.id as number)}>✖</span>}
-    </div>)
+  return (
+    <div className={`etiqueta ${tipoClase}`}>
+      {etiqueta.nombre}
+      {handleCrossClick && (
+        <span className="cerrar" onClick={handleCrossClick}>✖</span>
+      )}
+      {handlePlusClick && (
+        <span className="agregar" onClick={handlePlusClick}>✚</span>
+      )}
+    </div>
+  );
 }

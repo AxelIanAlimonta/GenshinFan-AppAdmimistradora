@@ -1,13 +1,48 @@
-.editarVideo-container{
-    width: 90vw;
+.editarVideo-formulario {
+    width: 80vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
 }
 
-.editarVideo-videoInfo{
+.editarVideo-contenedorDatos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    gap: 30px;
+    padding: 20px;
+    flex-wrap: wrap;
+
+}
+
+.editarVideo-videoInfo {
     flex-basis: 500px;
     flex-shrink: 1;
 }
 
+.editarVideo-etiquetas{
+    flex-basis: 340px;
+    flex-grow: 1;
+}
+
+.editarVideo-controlYboton-contenedor {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.editarVideo-controlYboton-btnTxt {
+    white-space: nowrap;
+}
+
+
+.editarVideo-botones {
+    display: flex;
+    gap: 15px;
+    flex-grow: 1;
+
+}
