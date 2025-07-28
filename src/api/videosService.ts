@@ -2,7 +2,7 @@ import type { Video } from "../types/Video";
 
 const url = `${import.meta.env.VITE_API_BASE_URL}/Video`;
 
-async function getVideosPersonaje(): Promise<Video[]> {
+async function getVideos(): Promise<Video[]> {
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -10,7 +10,7 @@ async function getVideosPersonaje(): Promise<Video[]> {
     return response.json();
 }
 
-async function getVideoPersonajeById(id: number): Promise<Video> {
+async function getVideoById(id: number): Promise<Video> {
     const response = await fetch(`${url}/${id}`);
     if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -18,7 +18,7 @@ async function getVideoPersonajeById(id: number): Promise<Video> {
     return response.json();
 }
 
-async function createVideoPersonaje(video: Video): Promise<Video> {
+async function createVideo(video: Video): Promise<Video> {
     const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -32,7 +32,7 @@ async function createVideoPersonaje(video: Video): Promise<Video> {
     return response.json();
 }
 
-async function updateVideoPersonaje(id: number, video: Video): Promise<Video> {
+async function updateVideo(id: number, video: Video): Promise<Video> {
     const response = await fetch(`${url}/${id}`, {
         method: 'PUT',
         headers: {
@@ -46,7 +46,7 @@ async function updateVideoPersonaje(id: number, video: Video): Promise<Video> {
     return response.json();
 }
 
-async function deleteVideoPersonaje(id: number): Promise<void> {
+async function deleteVideo(id: number): Promise<void> {
     const response = await fetch(`${url}/${id}`, {
         method: 'DELETE',
     });
@@ -55,7 +55,7 @@ async function deleteVideoPersonaje(id: number): Promise<void> {
     }
 }
 
-async function getVideosPersonajeByPersonajeId(personajeId: number): Promise<Video[]> {
+async function getVideosByPersonajeId(personajeId: number): Promise<Video[]> {
     const response = await fetch(`${url}/personaje/${personajeId}`);
     if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -64,10 +64,10 @@ async function getVideosPersonajeByPersonajeId(personajeId: number): Promise<Vid
 }
 
 export {
-    getVideosPersonaje,
-    getVideoPersonajeById,
-    createVideoPersonaje,
-    updateVideoPersonaje,
-    deleteVideoPersonaje,
-    getVideosPersonajeByPersonajeId
+    getVideos,
+    getVideoById,
+    createVideo,
+    updateVideo,
+    deleteVideo,
+    getVideosByPersonajeId
 };

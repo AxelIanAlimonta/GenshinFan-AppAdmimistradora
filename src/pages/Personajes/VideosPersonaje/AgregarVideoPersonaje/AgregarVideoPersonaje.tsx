@@ -5,7 +5,7 @@ import { Button, Form } from 'react-bootstrap';
 import type { Video } from '../../../../types/Video';
 import { useState } from 'react';
 import Loading from '../../../../components/Loading';
-import MostrarVideosPersonaje from '../../../../components/MostrarVideos/MostrarVideos';
+import MostrarVideos from '../../../../components/MostrarVideos/MostrarVideos';
 
 export default function AgregarVideoPersonaje() {
 
@@ -16,7 +16,7 @@ export default function AgregarVideoPersonaje() {
 
     const navigate = useNavigate();
 
-    const { createVideo, loading, error, videos, deleteVideo } = useVideosPersonajePorIdPersonaje(id);
+    const { crearVideo, loading, error, videos, borrarVideo } = useVideosPersonajePorIdPersonaje(id);
 
     if (isNaN(id)) {
         throw new Error("ID del personaje no válido");
@@ -47,12 +47,12 @@ export default function AgregarVideoPersonaje() {
             personajeId: id
         };
 
-        createVideo(nuevoVideo).then(() => {
+        crearVideo(nuevoVideo).then(() => {
             setTitulo('');
             setUrl('');
             setFechaPublicacion('');
         })
-            .catch((error) => {
+            .catch((error: any) => {
                 console.error("Error al agregar el video:", error);
                 alert("Error al agregar el video. Por favor, inténtelo de nuevo.");
             });
@@ -88,13 +88,18 @@ export default function AgregarVideoPersonaje() {
 
                 <Form.Group className='formulario-botones'>
                     <Button variant="success" type="submit">Agregar Video</Button>
-                    <Button variant='danger' onClick={() => { navigate(-1) }}>Volver</Button>
+                    <Button variant='danger' onClick={() => { navigate(-1) }} type='button'>Volver</Button>
                 </Form.Group>
             </Form>
 
             <h3>Videos Agregados</h3>
             {videos.length > 0 ? (
-                <MostrarVideosPersonaje videos={videos} deleteVideo={deleteVideo} error={error} loading={loading} />
+                <MostrarVideos
+                    videos={videos}
+                    borrarVideo={borrarVideo ? (id: number) => { borrarVideo(id); } : () => { }}
+                    error={error}
+                    loading={loading}
+                />
             ) : (
                 <div>No hay videos disponibles para este personaje.</div>
             )}

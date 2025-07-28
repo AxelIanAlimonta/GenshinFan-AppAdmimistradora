@@ -9,7 +9,7 @@ import { useNavigate, useParams } from 'react-router';
 import usePersonajeById from '../../../hooks/Personajes/usePersonajeById';
 import Loading from '../../../components/Loading';
 import MostrarImagenesPersonaje from '../../../components/MostrarImagenes/MostrarImagenes';
-import MostrarVideosPersonaje from '../../../components/MostrarVideos/MostrarVideos';
+import MostrarVideos from '../../../components/MostrarVideos/MostrarVideos';
 import useImagenesPersonajePorIdPersonaje from '../../../hooks/Personajes/useImagenesPersonajePorIdPersonaje';
 import { useVideosPersonajePorIdPersonaje } from '../../../hooks/Personajes/useVideosPersonajePorIdPersonaje';
 import MostrarAnimacionesPersonaje from '../AnimacionesPersonaje/MostrarAnimacionesPersonaje/MostrarAnimacionesPersonaje';
@@ -45,7 +45,7 @@ export default function EditarPersonaje() {
     const { elementos } = useElementos();
     const { regiones } = useRegiones();
     const { imagenesPersonaje, eliminarImagen, loading: loadingImagenes, error: errorImagenes } = useImagenesPersonajePorIdPersonaje(id);
-    const { videos, deleteVideo, loading: loadingVideos, error: errorVideos } = useVideosPersonajePorIdPersonaje(id);
+    const { videos, borrarVideo, loading: loadingVideos, error: errorVideos } = useVideosPersonajePorIdPersonaje(id);
     const { animaciones, eliminarAnimacion, loading: loadingAnimaciones, error: errorAnimaciones } = useAnimacionesPersonajePorIdPersonaje(id);
 
     const navigate = useNavigate();
@@ -235,7 +235,12 @@ export default function EditarPersonaje() {
                         <Button variant="primary" onClick={() => navigate(`/personajes/videos-personaje/${id}/agregar`)}>
                             Agregar Video
                         </Button>
-                        <MostrarVideosPersonaje videos={videos} loading={loadingVideos} error={errorVideos} deleteVideo={deleteVideo} />
+                        <MostrarVideos
+                            videos={videos}
+                            loading={loadingVideos}
+                            error={errorVideos}
+                            borrarVideo={borrarVideo ? (id: number) => { void borrarVideo(id); } : () => { }}
+                        />
                     </section>
                 </Tab>
 

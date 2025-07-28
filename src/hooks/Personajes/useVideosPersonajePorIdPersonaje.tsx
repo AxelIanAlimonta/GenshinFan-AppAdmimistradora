@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createVideoPersonaje, getVideosPersonajeByPersonajeId, updateVideoPersonaje, deleteVideoPersonaje } from "../../api/videosService";
+import { createVideo, getVideosByPersonajeId, updateVideo, deleteVideo } from "../../api/videosService";
 import type { Video } from "../../types/Video";
 
 export function useVideosPersonajePorIdPersonaje(idPersonaje: number) {
@@ -14,7 +14,7 @@ export function useVideosPersonajePorIdPersonaje(idPersonaje: number) {
             videos: [],
             loading: false,
             error: "ID de personaje no válido",
-            createVideo: async () => { console.error("ID de personaje no válido"); return null; },
+            crearVideo: async () => { console.error("ID de personaje no válido"); return null; },
             updateVideo: async () => { console.error("ID de personaje no válido"); return null; },
             deleteVideo: async () => { console.error("ID de personaje no válido"); }
         };
@@ -23,7 +23,7 @@ export function useVideosPersonajePorIdPersonaje(idPersonaje: number) {
     useEffect(() => {
         const getVideos = async (): Promise<Video[]> => {
             try {
-                const videos = await getVideosPersonajeByPersonajeId(idPersonaje);
+                const videos = await getVideosByPersonajeId(idPersonaje);
                 setVideos(videos);
                 return videos;
             } catch (error) {
@@ -39,9 +39,9 @@ export function useVideosPersonajePorIdPersonaje(idPersonaje: number) {
 
 
 
-    const createVideo = async (video: Video) => {
+    const crearVideo = async (video: Video) => {
         try {
-            const newVideo = await createVideoPersonaje(video);
+            const newVideo = await createVideo(video);
             setVideos((prevVideos) => [...prevVideos, newVideo]);
             return newVideo;
         } catch (error) {
@@ -52,9 +52,9 @@ export function useVideosPersonajePorIdPersonaje(idPersonaje: number) {
     };
 
 
-    const updateVideo = async (id: number, video: Video) => {
+    const actualizarVideo = async (id: number, video: Video) => {
         try {
-            const updatedVideo = await updateVideoPersonaje(id, video);
+            const updatedVideo = await updateVideo(id, video);
             setVideos((prevVideos) =>
                 prevVideos.map((v) => (v.id === id ? updatedVideo : v))
             );
@@ -66,9 +66,9 @@ export function useVideosPersonajePorIdPersonaje(idPersonaje: number) {
         }
     };
 
-    const deleteVideo = async (id: number) => {
+    const borrarVideo = async (id: number) => {
         try {
-            await deleteVideoPersonaje(id);
+            await deleteVideo(id);
             setVideos((prevVideos) => prevVideos.filter((v) => v.id !== id));
         } catch (error) {
             console.error("Error deleting video:", error);
@@ -79,6 +79,6 @@ export function useVideosPersonajePorIdPersonaje(idPersonaje: number) {
 
 
 
-    return { videos, createVideo, updateVideo, deleteVideo, loading, error };
+    return { videos, crearVideo, actualizarVideo, borrarVideo, loading, error };
 }
 
