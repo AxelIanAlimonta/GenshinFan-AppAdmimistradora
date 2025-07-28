@@ -2,6 +2,17 @@
     width: 350px;
 }
 
+.mostrarVideo-titulo{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #333;
+    text-wrap: nowrap;
+    width: 100%;
+    overflow: hidden;
+}
+
 /* Envoltorio responsivo para el iframe */
 .mostrarVideo-responsive {
     position: relative;
@@ -56,4 +67,35 @@
     height: 100%;
     object-fit: cover;
     border-radius: 15%;
+}
+
+/* Agregar al archivo MostrarVideo.css */
+.mostrarVideo-thumbnail {
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.mostrarVideo-thumbnail-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.mostrarVideo-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease;
+}
+
+.mostrarVideo-thumbnail:hover .mostrarVideo-play-button {
+    transform: translate(-50%, -50%) scale(1.1);
 }

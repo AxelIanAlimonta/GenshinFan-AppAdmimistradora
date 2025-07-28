@@ -1,30 +1,21 @@
 import type { Video } from "../../types/Video";
 import './MostrarVideo.css';
 import Etiqueta from "../Etiqueta";
+import { useNavigate } from "react-router";
+import IframeVideo from "./IframeVideo";
 
-function getYoutubeEmbedUrl(url: string) {
-    const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/))([\w-]{11})/);
-    return match ? `https://www.youtube.com/embed/${match[1]}` : null;
-}
 
-export default function MostrarVideo({ video, eliminarVideo }: { video: Video, eliminarVideo: (id: number) => void }) {
-    const embedUrl = video.url ? getYoutubeEmbedUrl(video.url) : null;
+
+export default function MostrarVideo({ video, eliminarVideo, editarVideo }: { video: Video, eliminarVideo?: (id: number) => void, editarVideo?: boolean }) {
+
+    const navigate = useNavigate();
+
+    if (!video) return <p>Video no encontrado</p>;
 
     return (
         <div className="mostrarVideo-container">
-            {embedUrl ? (
-                <div className="mostrarVideo-responsive">
-                    <iframe
-                        className="mostrarVideo-iframe"
-                        src={embedUrl}
-                        title={video.titulo}
-                        allowFullScreen
-                    ></iframe>
-                </div>
-            ) : (
-                <p>URL inválida</p>
-            )}
-
+            <h2 className="mostrarVideo-titulo">{video.titulo}</h2>
+            <IframeVideo url={video.url || ""} />
             <section className="mostrarVideo-seccionEtiquetasYBtns">
                 <div className="mostrarVideo-contenedorDeEtiquetas">
                     {video.etiquetas && video.etiquetas.length > 0 ? (
@@ -36,13 +27,14 @@ export default function MostrarVideo({ video, eliminarVideo }: { video: Video, e
                     )}
                 </div>
                 <div className="mostrarVideo-contenedorDeBotones">
-                    <button className="mostrarVideo-contenedorDeBotones-btn"><img src="/images/editar.png" alt="Editar" /></button>
-                    <button className="mostrarVideo-contenedorDeBotones-btn" onClick={() => eliminarVideo(video.id as number)}><img src="/images/borrar.png" alt="Borrar" /></button>
-
+                    {editarVideo && (
+                        <button className="mostrarVideo-contenedorDeBotones-btn" onClick={() => navigate(`/editar-video/${video.id}`)} type="button"><img src="/images/editar.png" alt="Editar" /></button>
+                    )}
+                    {eliminarVideo && (
+                        <button className="mostrarVideo-contenedorDeBotones-btn" onClick={() => eliminarVideo(video.id as number)} type="button"><img src="/images/borrar.png" alt="Borrar" /></button>
+                    )}
                 </div>
             </section>
-
-
         </div>
     );
 }
