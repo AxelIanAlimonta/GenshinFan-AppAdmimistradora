@@ -1,18 +1,22 @@
 .contenedorDePersonajes {
     display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: baseline;
-    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80vw;
+    gap: 20px;
 }
 
 .personaje-item {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
     margin-bottom: 10px;
     flex-wrap: nowrap;
-    width: 100%;
+    flex-basis: 400px;
+    gap: 10px;
 }
 
 .personaje-nombre {
@@ -21,7 +25,5 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    flex-grow: 2;
-    min-width: 200px;
     padding: 0;
 }
