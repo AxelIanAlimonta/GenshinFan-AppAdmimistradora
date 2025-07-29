@@ -1,4 +1,4 @@
-import { Button, Col, Row, } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { useElementos } from '../../hooks/Elementos/useElementos';
 import './Elementos.css';
 import Loading from '../../components/Loading';
@@ -19,30 +19,24 @@ export default function Elementos() {
 
     return (<>
 
-        <div className="contenedorDeElementos">
+        <div className="elementos-contenedorPrincipal">
             <Button variant="success" onClick={() => navigate('/elementos/crear')} className='btnAgregarElemento'>
                 Agregar Elemento
             </Button>
-            {elementos.map((elemento) => (
-                <Row key={elemento.id} className='rowElemento'>
-                    <Col className="colNombre"  >
+            <div className="elementos-contenedorDeItems">
+                {elementos.map((elemento) => (
+                    <div key={elemento.id} className='elementoItem'>
                         <p className="nombreElemento">{elemento.nombre}</p>
-                    </Col>
-                    <Col className='colIcono' sm="auto">
-                        <MostrarImagen src={elemento.iconoURL} alt={elemento.nombre} style={{ width: 75 }} />
-                    </Col>
-                    <Col className='colBtn'>
+                        <MostrarImagen src={elemento.iconoURL} alt={elemento.nombre} style={{ width: 60 }} />
                         <Button variant="primary" onClick={() => navigate(`/elementos/${elemento.id}/editar`)}>
                             Editar
                         </Button>
-                    </Col>
-                    <Col className='colBtn'>
                         <Button variant="danger" onClick={() => eliminarElemento(elemento.id)}>
                             Eliminar
                         </Button>
-                    </Col>
-                </Row>
-            ))}
+                    </div>
+                ))}
+            </div>
         </div>
     </>
     );

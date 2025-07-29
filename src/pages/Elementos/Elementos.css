@@ -1,38 +1,33 @@
-.contenedorDeElementos {
+.elementos-contenedorPrincipal {
     display: flex;
-    max-width: fit-content;
-    justify-self: center;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    gap: 20px;
+    width: 80vw;
 }
 
 .btnAgregarElemento {
-    align-self: start;
+    align-self: flex-start;
+    margin-bottom: 20px;
 }
 
-.colNombre {
+.elementos-contenedorDeItems {
     display: flex;
-    align-items: center;
-    width: 200px;
-    overflow: hidden;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 45px;
+    width: 100%;
+}
+
+.elementoItem {
+    display: flex;
+    gap: 15px;
+    flex-basis: 350px;
 }
 
 .nombreElemento {
-   margin-bottom: 0;
-   font-size: 1.2rem;
-}
-
-.colIcono {
-    padding: 10px;
-}
-
-.imgIco {
-    width: 60px;
-}
-
-.colBtn {
+    font-size: 1.2rem;
+    font-weight: bold;
+    flex-grow: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
