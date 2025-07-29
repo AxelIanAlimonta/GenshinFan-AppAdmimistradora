@@ -22,8 +22,15 @@
   background-color: #c8e6c9;
 }
 
+.etiqueta-amarilla {
+  background-color: #fff9c4;
+}
+
+
+
 .etiqueta .cerrar,
-.etiqueta .agregar {
+.etiqueta .agregar,
+.etiqueta .editar {
   margin-left: 4px;
   cursor: pointer;
   font-weight: bold;
@@ -38,4 +45,8 @@
 
 .etiqueta .agregar {
   color: green;
+}
+
+.etiqueta .editar {
+  color: orange;
 }

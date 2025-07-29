@@ -9,3 +9,20 @@
         width: 600px;
     }
 }
+
+.editandoEtiqueta-textoYboton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.editandoEtiqueta-texto {
+    flex-basis: 200px;
+    flex-grow: 1;
+}
+
+.editandoEtiqueta-boton {
+    margin: 0;
+}
