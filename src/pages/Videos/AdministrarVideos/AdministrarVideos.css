@@ -1,0 +1,30 @@
+.administrarVideos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+}
+
+.administrarVideos-AgregarYBusqueda {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: flex-start;
+}
+
+.administrarVideos-busquedaLabel {
+    text-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.administrarVideos-busquedaContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}

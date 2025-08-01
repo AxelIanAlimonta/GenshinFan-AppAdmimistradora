@@ -17,7 +17,7 @@ function NavBar() {
                     <Nav className="me-auto">
                         <Nav.Link onClick={() => navigate('/')}>Home</Nav.Link>
                         <Nav.Link onClick={() => navigate('/personajes')}>Personajes</Nav.Link>
-                        <Nav.Link onClick={() => navigate('/administrar-videos')}>Videos</Nav.Link>
+                        <Nav.Link onClick={() => navigate('/videos')}>Videos</Nav.Link>
                         <Nav.Link onClick={() => navigate('/elementos')}>Elementos</Nav.Link>
                         <Nav.Link onClick={() => navigate('/regiones')}>Regiones</Nav.Link>
                         <Nav.Link onClick={() => navigate('/etiquetas')}>Etiquetas</Nav.Link>

@@ -28,7 +28,7 @@ export default function MostrarVideo({ video, eliminarVideo, editarVideo }: { vi
                 </div>
                 <div className="mostrarVideo-contenedorDeBotones">
                     {editarVideo && (
-                        <button className="mostrarVideo-contenedorDeBotones-btn" onClick={() => navigate(`/editar-video/${video.id}`)} type="button"><img src="/images/editar.png" alt="Editar" /></button>
+                        <button className="mostrarVideo-contenedorDeBotones-btn" onClick={() => navigate(`/videos/editar/${video.id}`)} type="button"><img src="/images/editar.png" alt="Editar" /></button>
                     )}
                     {eliminarVideo && (
                         <button className="mostrarVideo-contenedorDeBotones-btn" onClick={() => eliminarVideo(video.id as number)} type="button"><img src="/images/borrar.png" alt="Borrar" /></button>

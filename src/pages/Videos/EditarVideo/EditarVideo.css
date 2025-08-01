@@ -1,0 +1,65 @@
+.editarVideo-formulario {
+    width: 450px;
+    max-width: 80vw;
+}
+
+.editarVideo-videoInfo-tab {
+    width: 100%;
+}
+
+.editarVideo-videoInfo {
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.editarVideo-etiquetas {
+    width: 100%;
+    margin-top: 15px;
+
+}
+
+.editarVideo-etiquetas-tabs {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.editarVideo-etiquetas-tab {
+    width: 100%;
+}
+
+.editarVideo-etiquetas-formGroup {
+    width: 100%;
+}
+
+.editarVideo-contenedorEtiquetas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-radius: 5px;
+}
+
+.editarVideo-controlYboton-contenedor {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.editarVideo-controlYboton-btnTxt {
+    white-space: nowrap;
+}
+
+
+.editarVideo-botones {
+    display: flex;
+    gap: 15px;
+    flex-grow: 1;
+    margin-top: 15px;
+    align-self: center;
+    justify-self: center;
+
+}

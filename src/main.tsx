@@ -22,9 +22,10 @@ import AgregarImagenPersonaje from './pages/Personajes/ImagenesPersonaje/Agregar
 import AgregarVideoPersonaje from './pages/Personajes/VideosPersonaje/AgregarVideoPersonaje/AgregarVideoPersonaje.tsx';
 import AgregarAnimacionPersonaje from './pages/Personajes/AnimacionesPersonaje/AgregarAnimacionPersonaje/AgregarAnimacionPersonaje.tsx';
 import AdministrarEtiquetas from './pages/Etiquetas/AdministrarEtiquetas.tsx';
-import AdministrarVideos from './pages/AdministrarVideos/AdministrarVideos.tsx';
-import EditarVideo from './pages/EditarVideo/EditarVideo.tsx';
+import AdministrarVideos from './pages/Videos/AdministrarVideos/AdministrarVideos.tsx';
+import EditarVideo from './pages/Videos/EditarVideo/EditarVideo.tsx';
 import RedesSociales from './pages/RedesSociales/RedesSociales.tsx';
+import AgregarVideo from './pages/Videos/AgregarVideo/AgregarVideo.tsx';
 
 
 createRoot(document.getElementById('root')!).render(
@@ -60,9 +61,12 @@ createRoot(document.getElementById('root')!).render(
 
         <Route path="etiquetas" element={<AdministrarEtiquetas />} />
 
-        <Route path='administrar-videos' element={<AdministrarVideos />} />
 
-        <Route path="editar-video/:id" element={<EditarVideo />} />
+        <Route path="videos">
+          <Route index element={<AdministrarVideos />} />
+          <Route path="agregar" element={<AgregarVideo />} />
+          <Route path="editar/:id" element={<EditarVideo />} />
+        </Route>
 
         <Route path="redes-sociales" element={<RedesSociales />} />
 
