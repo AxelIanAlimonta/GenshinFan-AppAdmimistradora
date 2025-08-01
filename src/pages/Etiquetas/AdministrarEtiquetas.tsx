@@ -14,6 +14,7 @@ export default function AdministrarEtiquetas() {
     const [buscadorEtiquetaParaEliminar, setBuscadorEtiquetaParaEliminar] = useState("");
     const [buscadorEtiquetaParaEditar, setBuscadorEtiquetaParaEditar] = useState("");
     const [etiquetaEditable, setEtiquetaEditable] = useState<TipoEtiqueta | null>(null);
+    const [etiquetaEditableOriginal, setEtiquetaEditableOriginal] = useState<TipoEtiqueta | null>(null);
 
     if (loading) {
         return <Loading />;
@@ -36,6 +37,12 @@ export default function AdministrarEtiquetas() {
         setNombreEtiqueta("");
     }
 
+
+    function handleEditClick(etiqueta: TipoEtiqueta) {
+        setEtiquetaEditable(etiqueta);
+        setEtiquetaEditableOriginal(etiqueta);
+    }
+
     function handleEditSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         if (etiquetaEditable) {
@@ -52,6 +59,9 @@ export default function AdministrarEtiquetas() {
         etiqueta.nombre.toLowerCase().includes(buscadorEtiquetaParaEliminar.toLowerCase())
     );
 
+    const etiquetasParaEditarFiltradas = etiquetas.filter(etiqueta =>
+        etiqueta.nombre.toLowerCase().includes(buscadorEtiquetaParaEditar.toLowerCase())
+    );
 
     return (
 
@@ -119,7 +129,7 @@ export default function AdministrarEtiquetas() {
                     {etiquetaEditable && (
                         <Form onSubmit={(e) => handleEditSubmit(e)}>
                             <FormGroup controlId="formEtiquetaEditar">
-                                <Form.Label>Nombre de la Etiqueta</Form.Label>
+                                <Form.Label>Editando etiqueta: <Etiqueta etiqueta={etiquetaEditableOriginal as TipoEtiqueta} /></Form.Label>
                                 <div className="editandoEtiqueta-textoYboton">
                                     <Form.Control
                                         type="text"
@@ -131,17 +141,20 @@ export default function AdministrarEtiquetas() {
                                     <Button variant="primary" type="submit" className="editandoEtiqueta-boton">
                                         Guardar Cambios
                                     </Button>
+                                    <Button variant="secondary" onClick={() => setEtiquetaEditable(null)}>
+                                        Cancelar
+                                    </Button>
                                 </div>
                             </FormGroup>
                         </Form>
                     )}
 
                     <div className="contenedorDeEtiquetas">
-                        {etiquetas.map((etiqueta) => (
+                        {etiquetasParaEditarFiltradas.map((etiqueta) => (
                             <Etiqueta
                                 key={etiqueta.id}
                                 etiqueta={etiqueta}
-                                handleEditClick={() => setEtiquetaEditable(etiqueta)}
+                                handleEditClick={() => handleEditClick(etiqueta)}
                             />
                         ))}
                     </div>

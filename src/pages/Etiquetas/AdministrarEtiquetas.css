@@ -18,6 +18,10 @@
     gap: 15px;
 }
 
+.contenedorDeEtiquetas{
+    margin-top: 15px;
+}
+
 .editandoEtiqueta-texto {
     flex-basis: 200px;
     flex-grow: 1;
