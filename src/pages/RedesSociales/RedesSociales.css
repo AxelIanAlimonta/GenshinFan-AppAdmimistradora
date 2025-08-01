@@ -1,0 +1,21 @@
+.redesSociales-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+}
+
+.redesSociales-list{
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.redesSociales-form-group {
+    width: 100%;
+}

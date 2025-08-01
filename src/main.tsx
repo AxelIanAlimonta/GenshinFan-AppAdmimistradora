@@ -24,6 +24,7 @@ import AgregarAnimacionPersonaje from './pages/Personajes/AnimacionesPersonaje/A
 import AdministrarEtiquetas from './pages/Etiquetas/AdministrarEtiquetas.tsx';
 import AdministrarVideos from './pages/AdministrarVideos/AdministrarVideos.tsx';
 import EditarVideo from './pages/EditarVideo/EditarVideo.tsx';
+import RedesSociales from './pages/RedesSociales/RedesSociales.tsx';
 
 
 createRoot(document.getElementById('root')!).render(
@@ -62,6 +63,8 @@ createRoot(document.getElementById('root')!).render(
         <Route path='administrar-videos' element={<AdministrarVideos />} />
 
         <Route path="editar-video/:id" element={<EditarVideo />} />
+
+        <Route path="redes-sociales" element={<RedesSociales />} />
 
         <Route path="pruebas" element={<Prueba />} />
 
