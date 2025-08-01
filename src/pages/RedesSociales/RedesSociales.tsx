@@ -30,7 +30,14 @@ export default function RedesSociales() {
     return (
         <div>
             <h1>Redes Sociales</h1>
-            <Tabs defaultActiveKey="crear" id="redes-sociales-tabs">
+            <Tabs defaultActiveKey="listar" id="redes-sociales-tabs">
+                <Tab eventKey="listar" title="Listar Redes Sociales">
+                    <ul className="redesSociales-list">
+                        {redesSociales.map(red => (
+                            <RedCargada red={red} key={red.id} eliminar={() => eliminarRedSocial(red.id)} actualizar={actualizarRedSocial} />
+                        ))}
+                    </ul>
+                </Tab>
                 <Tab eventKey="crear" title="Crear Red Social">
                     <Form onSubmit={handleSubmit} className="redesSociales-form">
                         <Form.Group className="redesSociales-form-group">
@@ -48,14 +55,6 @@ export default function RedesSociales() {
                         <MostrarImagen src={iconoUrlNuevaRed} alt="Icono de la Red Social" style={{ width: "70px" }} />
                         <Button type="submit">Agregar Red Social</Button>
                     </Form>
-                </Tab>
-
-                <Tab eventKey="listar" title="Listar Redes Sociales">
-                    <ul className="redesSociales-list">
-                        {redesSociales.map(red => (
-                            <RedCargada red={red} key={red.id} eliminar={() => eliminarRedSocial(red.id)} actualizar={actualizarRedSocial} />
-                        ))}
-                    </ul>
                 </Tab>
             </Tabs>
 
