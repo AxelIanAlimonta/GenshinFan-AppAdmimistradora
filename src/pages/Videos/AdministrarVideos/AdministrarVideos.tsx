@@ -2,7 +2,7 @@ import useVideos from "../../../hooks/Videos/useVideos";
 import Loading from "../../../components/Loading";
 import MostrarVideos from "../../../components/MostrarVideos/MostrarVideos";
 import './AdministrarVideos.css';
-import { Button, Form } from "react-bootstrap";
+import { Button, FloatingLabel, Form } from "react-bootstrap";
 import { useMemo, useState } from "react";
 import type { Video } from "../../../types/Video";
 import { useNavigate } from "react-router";
@@ -40,13 +40,14 @@ export default function AdministrarVideos() {
             <div className="administrarVideos-AgregarYBusqueda mb-3">
                 <Button variant="primary" onClick={() => navigate("/videos/agregar")}>Agregar Video</Button>
                 <Form.Group controlId="formBasicEmail" className="administrarVideos-busquedaContainer">
-                    <Form.Label className="administrarVideos-busquedaLabel">Buscar por nombre</Form.Label>
-                    <Form.Control
-                        type="text"
-                        placeholder="Nombre del video"
-                        value={nombreBusqueda}
-                        onChange={(e) => setNombreBusqueda(e.target.value)}
-                    />
+                    <FloatingLabel controlId="floatingInput" label="Buscar por nombre" className="mb-3">
+                        <Form.Control
+                            type="text"
+                            placeholder="Nombre del video"
+                            value={nombreBusqueda}
+                            onChange={(e) => setNombreBusqueda(e.target.value)}
+                        />
+                    </FloatingLabel>
                 </Form.Group>
             </div>
 
