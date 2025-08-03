@@ -31,7 +31,7 @@ export default function AgregarVideo() {
                 <Form.Control type="text" placeholder="Ingrese el título" value={titulo} onChange={(e) => setTitulo(e.target.value)} required />
             </Form.Group>
 
-            <Form.Group controlId="formVideoUrl">
+            <Form.Group controlId="formVideoUrl" className="mb-3">
                 <Form.Label>URL</Form.Label>
                 <Form.Control type="url" placeholder="Ingrese la URL" value={url} onChange={(e) => setUrl(e.target.value)} required />
             </Form.Group>
