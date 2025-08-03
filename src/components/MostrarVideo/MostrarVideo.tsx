@@ -12,14 +12,21 @@ export default function MostrarVideo({ video, eliminarVideo, editarVideo }: { vi
 
     if (!video) return <p>Video no encontrado</p>;
 
+    const etiquetasOrdenadas: Video["etiquetas"] = [];
+    if (video.etiquetas && video.etiquetas.length > 0) {
+        etiquetasOrdenadas.push(...video.etiquetas);
+        etiquetasOrdenadas.sort((a, b) => a.nombre.localeCompare(b.nombre));
+    }
+
+
     return (
         <div className="mostrarVideo-container">
             <h2 className="mostrarVideo-titulo">{video.titulo}</h2>
             <IframeVideo url={video.url || ""} />
             <section className="mostrarVideo-seccionEtiquetasYBtns">
                 <div className="mostrarVideo-contenedorDeEtiquetas">
-                    {video.etiquetas && video.etiquetas.length > 0 ? (
-                        video.etiquetas.map((etiqueta, index) => (
+                    {etiquetasOrdenadas.length > 0 ? (
+                        etiquetasOrdenadas.map((etiqueta, index) => (
                             <Etiqueta key={index} etiqueta={etiqueta} />
                         ))
                     ) : (

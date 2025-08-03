@@ -55,6 +55,7 @@ export default function AdministrarEtiquetas() {
         }
     }
 
+    etiquetas.sort((a, b) => a.nombre.localeCompare(b.nombre));
     const etiquetasFiltradas = etiquetas.filter(etiqueta =>
         etiqueta.nombre.toLowerCase().includes(buscadorEtiquetaParaEliminar.toLowerCase())
     );
