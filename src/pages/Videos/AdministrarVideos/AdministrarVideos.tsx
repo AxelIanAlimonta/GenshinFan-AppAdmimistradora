@@ -37,7 +37,7 @@ export default function AdministrarVideos() {
         <div className="administrarVideos-container">
             <h1>Administrar Videos</h1>
 
-            <div className="administrarVideos-AgregarYBusqueda">
+            <div className="administrarVideos-AgregarYBusqueda mb-3">
                 <Button variant="primary" onClick={() => navigate("/videos/agregar")}>Agregar Video</Button>
                 <Form.Group controlId="formBasicEmail" className="administrarVideos-busquedaContainer">
                     <Form.Label className="administrarVideos-busquedaLabel">Buscar por nombre</Form.Label>
