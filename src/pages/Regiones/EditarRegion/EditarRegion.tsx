@@ -8,82 +8,95 @@ import "./EditarRegion.css";
 import MostrarImagen from "../../../components/MostrarImagen";
 
 export default function EditarRegion() {
-    const idParam = useParams<{ id: string }>().id;
-    const navigate = useNavigate();
+  const idParam = useParams<{ id: string }>().id;
+  const navigate = useNavigate();
 
-    // Always call hooks in the same order
-    const [nombre, setNombre] = useState("");
-    const [imagenURL, setImagenURL] = useState("");
+  // Always call hooks in the same order
+  const [nombre, setNombre] = useState("");
+  const [imagenURL, setImagenURL] = useState("");
 
-    if (!idParam) {
-        return <div>Error: ID de la región no proporcionado</div>;
+  if (!idParam) {
+    return <div>Error: ID de la región no proporcionado</div>;
+  }
+  const id = parseInt(idParam);
+  const { region, actualizarRegion, loading, error } = useRegionById(id);
+
+  useEffect(() => {
+    if (region) {
+      setNombre(region.nombre);
+      setImagenURL(region.imagenURL);
     }
-    const id = parseInt(idParam);
-    const { region, actualizarRegion, loading, error } = useRegionById(id);
+  }, [region]);
 
-    useEffect(() => {
-        if (region) {
-            setNombre(region.nombre);
-            setImagenURL(region.imagenURL);
-        }
-    }, [region]);
+  if (loading) return <Loading />;
+  if (error) return <div>Error: {error}</div>;
+  if (!region) return <div>Error: Región no encontrada</div>;
 
-    if (loading) return <Loading />;
-    if (error) return <div>Error: {error}</div>;
-    if (!region) return <div>Error: Región no encontrada</div>;
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
 
-    function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-        event.preventDefault();
-        const formData = new FormData(event.currentTarget);
+    const updatedRegion: Region = {
+      id: id,
+      nombre: formData.get("nombre") as string,
+      imagenURL: formData.get("imagen") as string,
+    };
 
-        const updatedRegion: Region = {
-            id: id,
-            nombre: formData.get("nombre") as string,
-            imagenURL: formData.get("imagen") as string
-        };
+    actualizarRegion(updatedRegion).then(() => {
+      navigate("/regiones");
+    });
+  }
 
-        actualizarRegion(updatedRegion);
-        navigate("/regiones");
-    }
+  return (
+    <>
+      <h1>Editar Región</h1>
+      <Form onSubmit={handleSubmit} className="formEditarRegion">
+        <Form.Group controlId="formNombre" className="grupoFormulario">
+          <Form.Label>Nombre</Form.Label>
+          <Form.Control
+            type="text"
+            name="nombre"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+            required
+          />
+        </Form.Group>
+        <Form.Group controlId="formIcono" className="grupoFormulario">
+          <Form.Label>URL del Icono</Form.Label>
+          <Form.Control
+            type="text"
+            name="imagen"
+            value={imagenURL}
+            onChange={(e) => setImagenURL(e.target.value)}
+            required
+          />
+        </Form.Group>
 
-    return (
-        <>
-            <h1>Editar Región</h1>
-            <Form onSubmit={handleSubmit} className="formEditarRegion">
-                <Form.Group controlId="formNombre" className="grupoFormulario">
-                    <Form.Label>Nombre</Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="nombre"
-                        value={nombre}
-                        onChange={(e) => setNombre(e.target.value)}
-                        required
-                    />
-                </Form.Group>
-                <Form.Group controlId="formIcono" className="grupoFormulario">
-                    <Form.Label>URL del Icono</Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="imagen"
-                        value={imagenURL}
-                        onChange={(e) => setImagenURL(e.target.value)}
-                        required
-                    />
-                </Form.Group>
+        <div className="contenedorImg">
+          <MostrarImagen
+            src={imagenURL}
+            alt={nombre}
+            style={{
+              width: "100%",
+              height: "100%",
+              backgroundColor: "gray",
+              borderRadius: 10,
+              objectFit: "cover",
+              flexGrow: 1,
+              overflow: "hidden",
+            }}
+          />
+        </div>
 
-                <div className="contenedorImg">
-                    <MostrarImagen src={imagenURL} alt="Icono de la región" style={{ width: 100 }} />
-                </div>
-
-                <div className="contenedorBotones">
-                    <Button variant="success" type="submit">
-                        Guardar Cambios
-                    </Button>
-                    <Button variant="danger" onClick={() => navigate("/regiones")}>
-                        Cancelar
-                    </Button>
-                </div>
-            </Form>
-        </>
-    );
+        <div className="contenedorBotones">
+          <Button variant="success" type="submit">
+            Guardar Cambios
+          </Button>
+          <Button variant="danger" onClick={() => navigate("/regiones")}>
+            Cancelar
+          </Button>
+        </div>
+      </Form>
+    </>
+  );
 }

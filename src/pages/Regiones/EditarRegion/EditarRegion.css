@@ -15,6 +15,9 @@
 .contenedorImg {
     background-color: rgb(83, 83, 83);
     border-radius: 10px;
+    width: 300px;
+    height: 150px;
+    overflow: hidden;
 }
 
 .contenedorBotones {
