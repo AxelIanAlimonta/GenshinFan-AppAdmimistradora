@@ -34,6 +34,7 @@ export default function EditarPersonaje() {
     const [rareza, setRareza] = useState<number>();
     const [avatarURL, setAvatarURL] = useState<string>('');
     const [splashArtURL, setSplashArtURL] = useState<string>('');
+    const [splashArtSinFondoURL, setSplashArtSinFondoURL] = useState<string>('');
     const [tarjetaURL, setTarjetaURL] = useState<string>('');
     const [fechaLanzamiento, setFechaLanzamiento] = useState<string | ''>('');
     const [elementoId, setElementoId] = useState<number>();
@@ -57,6 +58,7 @@ export default function EditarPersonaje() {
             setRareza(personaje.rareza ?? undefined);
             setAvatarURL(personaje.avatarURL || '');
             setSplashArtURL(personaje.splashArtURL || '');
+            setSplashArtSinFondoURL(personaje.splashArtSinFondoURL || '');
             setTarjetaURL(personaje.tarjetaURL || '');
             setFechaLanzamiento(personaje.fechaLanzamiento || '');
             setElementoId(personaje.elementoId ?? undefined);
@@ -75,6 +77,7 @@ export default function EditarPersonaje() {
             rareza,
             avatarURL,
             splashArtURL,
+            splashArtSinFondoURL,
             tarjetaURL,
             fechaLanzamiento: fechaLanzamiento !== '' ? fechaLanzamiento : null,
             elementoId,
@@ -199,6 +202,19 @@ export default function EditarPersonaje() {
                             />
                             {tarjetaURL && (
                                 <MostrarImagen src={tarjetaURL} alt={nombre} style={{ height: 380 }} />
+                            )}
+                        </Form.Group>
+
+                        <Form.Group controlId="formSplashArtSinFondoURL" className="grupoFormulario contenedorSplashArt">
+                            <Form.Label className='labelSplashArt'>URL del Splash Art Sin Fondo</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Ingrese la URL del splash art sin fondo del personaje"
+                                value={splashArtSinFondoURL}
+                                onChange={(e) => setSplashArtSinFondoURL(e.target.value)}
+                            />
+                            {splashArtSinFondoURL && (
+                                <MostrarImagen src={splashArtSinFondoURL} alt={nombre} style={{ width: 700 }} />
                             )}
                         </Form.Group>
 
